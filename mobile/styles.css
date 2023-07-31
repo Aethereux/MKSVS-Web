@@ -65,8 +65,8 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #5c5c5c;
-  min-width: 120px; /* Adjust the width for mobile */
+  background-color: #f9f9f900;
+  min-width: 180px; /* Adjust the width for mobile */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
@@ -104,27 +104,18 @@
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     height: auto;
+    overflow: auto; /* Allow horizontal scroll for the navbar on mobile */
   }
 
   .navbar ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo {
-    margin-bottom: 10px; /* Add some spacing between logo and menu for mobile */
-  }
-
-  /* Show the mobile menu when active */
-  #menu.active {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Show the desktop menu on mobile */
+    flex-wrap: nowrap; /* Prevent items from wrapping to a new line */
   }
 
   .navbar ul li {
-    margin: 5px 0; /* Adjust the vertical margin for mobile */
+    margin: 0 20px; /* Revert the margin back to the desktop version */
     position: relative;
   }
 
@@ -141,17 +132,22 @@
     cursor: pointer;
   }
 
-  .navbar ul {
-    display: none; /* Hide the desktop menu */
-  }
-
-  /* Show the mobile menu icon */
+  /* Hide the mobile menu icon */
   .menu-icon {
-    display: block;
+    display: none;
   }
 
   /* Show the desktop menu when not active */
   #menu:not(.active) {
     display: flex;
+  }
+
+  /* Hide the dropdown on mobile */
+  .dropdown-content {
+    display: none;
+  }
+
+  .dropdown.clicked .dropdown-content {
+    display: none;
   }
 }
