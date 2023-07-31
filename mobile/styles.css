@@ -42,7 +42,7 @@
 .navbar ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 16px; /* Default font size for mobile */
+  font-size: 12px; /* Decrease font size by 4 for mobile */
 }
 
 /* Navbar Hovering */
@@ -95,7 +95,7 @@
   display: block;
   padding: 5px;
   text-align: left;
-  font-size: 14px; /* Adjust font size for mobile */
+  font-size: 8px; /* Decrease font size by 4 for mobile */
 }
 
 .dropdown-content li a:hover {
