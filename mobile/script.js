@@ -1,4 +1,4 @@
-// JavaScript to handle the dropdown on click for mobile screens
+// JavaScript to handle the dropdown on click for both desktop and mobile screens
 const dropdownToggle = document.querySelector('.dropdown a');
 const dropdownContent = document.querySelector('.dropdown-content');
 
@@ -17,3 +17,4 @@ window.addEventListener('click', (event) => {
 function toggleMenu() {
   var menu = document.getElementById('menu');
   menu.classList.toggle('active');
+}
