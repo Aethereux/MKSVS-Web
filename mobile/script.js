@@ -8,7 +8,7 @@ dropdownToggle.addEventListener('click', () => {
 
 // Close the dropdown if clicked outside of it
 window.addEventListener('click', (event) => {
-  if (!event.target.matches('.dropdown')) {
+  if (!event.target.closest('.dropdown')) {
     dropdownContent.classList.remove('show');
   }
 });
