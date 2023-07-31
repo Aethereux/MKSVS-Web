@@ -13,8 +13,8 @@
 }
 
 .navbar {
-  width: 85%;
-  margin: auto;
+  width: 100%;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,7 +22,7 @@
 }
 
 .logo {
-  width: 120px;
+  width: 100px;
   cursor: pointer;
 }
 
@@ -35,13 +35,14 @@
 }
 
 .navbar ul li {
-  margin: 0 20px;
+  margin: 0 10px;
   position: relative;
 }
 
 .navbar ul li a {
   text-decoration: none;
   color: #fff;
+  font-size: 14px; /* Adjust font size for mobile */
 }
 
 /* Navbar Hovering */
@@ -65,11 +66,13 @@
   display: none;
   position: absolute;
   background-color: #5c5c5c6e;
-  min-width: 300px;
+  min-width: 180px; /* Adjust the width for mobile */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
   flex-direction: column;
+  top: 60px; /* Adjust the top position for mobile */
+  right: 10px; /* Adjust the right position for mobile */
 }
 
 .dropdown-content.show {
@@ -83,7 +86,7 @@
 }
 
 .dropdown-content li {
-  padding: 5px 0;
+  padding: 5px 10px; /* Adjust the padding for mobile */
 }
 
 .dropdown-content li a {
@@ -105,13 +108,28 @@
     height: auto;
   }
 
-  .navbar ul li {
-    margin: 10px 0;
-  }
-
   .navbar ul {
     flex-direction: column;
     align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 10px; /* Add some spacing between logo and menu for mobile */
+  }
+
+  /* Show the mobile menu when active */
+  #menu.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin: 5px 0; /* Adjust the vertical margin for mobile */
+    position: relative;
+  }
+
+  .navbar ul li a {
+    font-size: 16px; /* Increase font size for better readability on mobile */
   }
 
   .menu-icon {
@@ -123,9 +141,17 @@
     cursor: pointer;
   }
 
-  /* Show the mobile menu when active */
-  #menu.active {
+  .navbar ul {
+    display: none; /* Hide the desktop menu */
+  }
+
+  /* Show the mobile menu icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Show the desktop menu when not active */
+  #menu:not(.active) {
     display: flex;
-    flex-direction: column;
   }
 }
