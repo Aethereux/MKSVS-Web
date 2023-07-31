@@ -42,7 +42,7 @@
 .navbar ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 14px; /* Adjust font size for mobile */
+  font-size: 16px; /* Increase font size for better readability on mobile */
 }
 
 /* Navbar Hovering */
@@ -71,8 +71,8 @@
   overflow: hidden;
   transition: max-height 0.3s ease-out;
   flex-direction: column;
-  top: 60px; /* Adjust the top position for mobile */
-  right: 10px; /* Adjust the right position for mobile */
+  top: 100%; /* Adjust the top position for mobile */
+  right: 0; /* Adjust the right position for mobile */
 }
 
 .dropdown-content.show {
@@ -95,6 +95,7 @@
   display: block;
   padding: 5px;
   text-align: left;
+  font-size: 14px; /* Adjust font size for mobile */
 }
 
 .dropdown-content li a:hover {
@@ -115,7 +116,7 @@
   }
 
   .navbar ul li {
-    margin: 0 20px; /* Revert the margin back to the desktop version */
+    margin: 0 15px; /* Revert the margin back to the desktop version */
     position: relative;
   }
 
