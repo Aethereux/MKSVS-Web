@@ -78,18 +78,6 @@
   overflow-y: auto; /* Add vertical scrollbar when necessary */
 }
 
-/* Show the dropdown content when clicking on the parent */
-.dropdown.clicked .dropdown-content {
-  display: block;
-  max-height: 500px;
-}
-
-/* Show the dropdown content when clicking on the parent */
-.dropdown.clicked .dropdown-content {
-  display: block;
-  max-height: 500px;
-}
-
 .dropdown-content li {
   padding: 5px 10px; /* Adjust the padding for mobile */
 }
