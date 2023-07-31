@@ -42,7 +42,7 @@
 .navbar ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 16px; /* Increase font size for better readability on mobile */
+  font-size: 16px; /* Default font size for mobile */
 }
 
 /* Navbar Hovering */
@@ -143,12 +143,25 @@
     display: flex;
   }
 
-  /* Hide the dropdown on mobile */
+  /* Show the mobile menu when active */
+  #menu.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Show the dropdown on mobile */
   .dropdown-content {
     display: none;
+    position: static;
+    background-color: #f9f9f900;
+    flex-direction: column;
+    max-height: 100%; /* Adjust the max-height for mobile */
+    width: 100%;
+    text-align: left;
   }
 
   .dropdown.clicked .dropdown-content {
-    display: none;
+    display: block;
+    max-height: 100%; /* Adjust the max-height for mobile */
   }
 }
