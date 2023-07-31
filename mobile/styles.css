@@ -102,8 +102,6 @@
   background-color: #ffffff42;
 }
 
-/* ... (Your existing CSS code remains unchanged) ... */
-
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .navbar {
@@ -135,7 +133,7 @@
     cursor: pointer;
   }
 
-  /* Hide the mobile menu icon */
+  /* Show the mobile menu icon */
   .menu-icon {
     display: none;
   }
@@ -151,19 +149,12 @@
     flex-direction: column;
   }
 
-  /* Show the dropdown on mobile */
+  /* Hide the dropdown on mobile */
   .dropdown-content {
     display: none;
-    position: static;
-    background-color: #f9f9f900;
-    flex-direction: column;
-    max-height: 100%; /* Adjust the max-height for mobile */
-    width: 100%;
-    text-align: left;
   }
 
   .dropdown.clicked .dropdown-content {
     display: block;
-    max-height: 100%; /* Adjust the max-height for mobile */
   }
 }
