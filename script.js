@@ -1,15 +1,19 @@
-window.onload = function() {
-    const content = document.getElementById('content');
-    
-    content.animate([
-      // keyframes
-      { transform: 'translateY(0px)' },
-      { transform: 'translateY(-300px)' }
-    ], {
-      // timing options
-      duration: 1000,
-      iterations: Infinity
-    });
-  };
-  
-  
+ // JavaScript to handle the dropdown on click for smaller screens
+ const dropdownToggle = document.querySelector('.dropdown a');
+ const dropdownContent = document.querySelector('.dropdown-content');
+
+ dropdownToggle.addEventListener('click', () => {
+   dropdownContent.classList.toggle('show');
+ });
+
+ // Close the dropdown if clicked outside of it
+ window.addEventListener('click', (event) => {
+   if (!event.target.matches('.dropdown a')) {
+     dropdownContent.classList.remove('show');
+   }
+ });
+
+
+
+
+
