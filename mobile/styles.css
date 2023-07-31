@@ -19,6 +19,8 @@
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  position:relative;
+  z-index: 100;
 }
 
 .logo {
@@ -72,6 +74,8 @@
   top: 100%; /* Adjust the top position for mobile */
   right: 0; /* Adjust the right position for mobile */
   z-index: 999; /* Set a higher z-index to make the dropdown overlap the main content */
+  max-height: 500px; /* Adjust the max-height to show the entire dropdown without scrolling */
+  overflow-y: auto; /* Add vertical scrollbar when necessary */
 }
 
 /* Show the dropdown content when clicking on the parent */
