@@ -119,5 +119,42 @@
     align-items: center;
   }
 
+  .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Show the mobile menu when active */
+  #menu.active {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .navbar ul {
+      display: none; /* Hide the desktop menu */
+    }
+  
+    /* Show the mobile menu icon */
+    .menu-icon {
+      display: block;
+    }
+  
+    /* Show the desktop menu when not active */
+    #menu:not(.active) {
+      display: flex;
+    }
+  }
 
 }

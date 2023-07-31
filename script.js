@@ -13,6 +13,12 @@
    }
  });
 
+ // Toggle the mobile menu
+function toggleMenu() {
+  var menu = document.getElementById('menu');
+  menu.classList.toggle('active');
+}
+
 
 
 
