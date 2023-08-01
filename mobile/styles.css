@@ -71,6 +71,12 @@
   overflow: hidden;
   transition: max-height 0.3s ease-out;
   flex-direction: column;
+  right: auto; /* Reset the right position */
+  left: 0;  /* Align the dropdown to the left on mobile */
+  min-height: 160px; /* Adjust the width for mobile */
+  max-height: 0;
+  top: 100%; /* Adjust the top position for mobile */
+  background-size: cover; /* Optimize the background size for mobile */
 }
 
 .dropdown-content.show {
@@ -116,7 +122,9 @@
     font-size: 14px;
   }
   .navbar ul {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
   }
 
