@@ -65,10 +65,10 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #303030;
+  background-color: #5c5c5c6e;
   min-width: 300px;
   max-height: 0;
-  overflow: visible;
+  overflow: hidden;
   transition: max-height 0.3s ease-out;
   flex-direction: column;
 }
@@ -96,7 +96,7 @@
 }
 
 .dropdown-content li a:hover {
-  background-color: #6a6a6a;
+  background-color: #ffffff42;
 }
 
 /* Responsive Styles */
