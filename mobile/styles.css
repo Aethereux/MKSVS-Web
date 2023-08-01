@@ -104,12 +104,17 @@
   .navbar {
     flex-direction: column;
     height: auto;
+    padding: 5px;
   }
 
   .navbar ul li {
-    margin: 10px 0;
+    margin: 0 10px;
   }
 
+
+  .navbar ul li a {
+    font-size: 14px;
+  }
   .navbar ul {
     flex-direction: column;
     align-items: center;
