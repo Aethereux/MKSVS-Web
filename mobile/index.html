@@ -9,6 +9,17 @@
   <link rel="icon" href="/mobile/Images/mksvslogo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <link rel="stylesheet" href="/mobile/styles.css">
+  <script>
+    // Device detection
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  
+    // Load appropriate CSS based on device
+    const head = document.querySelector('head');
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = isMobile ? '/mobile/styles.css' : '/desktop/styles.css';
+    head.appendChild(link);
+  </script>  
 </head>
 <body>
   <!-- Banner / Background IMG -->

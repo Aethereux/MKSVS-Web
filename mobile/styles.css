@@ -19,7 +19,7 @@
   flex-direction: column;
 }
 
-/* Main Content Styles*/
+/* Main Content Styles */
 .content {
   text-align: center;
   color: #fff;
@@ -27,12 +27,12 @@
 }
 
 .content h1 {
-  font-size: 35px;
-  margin-top: 40px;
+  font-size: 25px;
+  margin-top: 20px;
 }
 
 .content p {
-  margin: 20px auto;
+  margin: 15px auto;
   font-weight: 100;
   line-height: 25px;
 }
@@ -152,7 +152,7 @@ button:hover span {
 }
 
 /* Show the dropdown content when clicking on the parent */
-.dropdown.clicked .dropdown-content { 
+.dropdown.clicked .dropdown-content {
   max-height: 1000px;
 }
 
@@ -198,7 +198,8 @@ button:hover span {
     margin-bottom: 10px;
   }
 
-  #menu.hidden {
+  /* Hide the desktop menu on mobile */
+  .navbar ul {
     display: none;
   }
 
