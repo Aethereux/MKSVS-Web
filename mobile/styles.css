@@ -5,30 +5,43 @@
   font-family: 'Roboto', sans-serif;
 }
 
-/* Main Content Styles */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Content Styles*/
 .content {
-  padding: 20px;
   text-align: center;
   color: #fff;
-  margin-top: 80px;
+  padding: 20px;
 }
 
 .content h1 {
-  font-size: 32px;
-  margin-top: 20px;
+  font-size: 35px;
+  margin-top: 40px;
 }
 
 .content p {
-  margin: 10px auto;
+  margin: 20px auto;
   font-weight: 100;
-  line-height: 1.5;
+  line-height: 25px;
 }
 
 button {
-  width: 150px;
-  padding: 10px 0;
+  width: 200px;
+  padding: 15px 0;
   text-align: center;
-  margin: 10px 0;
+  margin: 20px 10px;
   border-radius: 25px;
   font-weight: bold;
   border: 2px solid #009688;
@@ -69,15 +82,12 @@ button:hover span {
 .navbar {
   background-color: rgba(0, 0, 0, 0.581);
   width: 100%;
-  position: fixed; /* Set the navbar to a fixed position */
-  top: 0; /* Position it at the top of the screen */
-  left: 0;
-  z-index: 999; /* Ensure the navbar stays above other elements */
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  padding: 0 20px;
+  padding: 0 20px; /* Add padding for better spacing */
 }
 
 .logo {
@@ -94,16 +104,35 @@ button:hover span {
 }
 
 .navbar ul li {
-  margin: 0 10px; /* Reduce margin for better spacing */
+  margin: 0 10px;
   position: relative;
 }
 
 .navbar ul li a {
   text-decoration: none;
   color: #fff;
-  padding: 5px 10px; /* Add padding for better touch experience on mobile */
+  padding: 5px 10px;
 }
 
+.hidden {
+  display: none;
+}
+
+/* Navbar Hovering */
+.navbar ul li::after {
+  content: '';
+  height: 3px;
+  width: 0;
+  background: #009688;
+  position: absolute;
+  left: 0;
+  bottom: -2.5px;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
 
 /* Dropdown styles */
 .dropdown-content {
@@ -160,14 +189,19 @@ button:hover span {
   }
 
   .menu-icon {
-    display: none;
+    display: block;
     font-size: 1.5rem;
     background: none;
     border: none;
     color: #fff;
     cursor: pointer;
+    margin-bottom: 10px;
   }
-  
+
+  #menu.hidden {
+    display: none;
+  }
+
   /* Show the mobile menu when active */
   #menu.active {
     display: flex;

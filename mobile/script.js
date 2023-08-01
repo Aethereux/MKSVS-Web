@@ -12,3 +12,11 @@ window.addEventListener('click', (event) => {
     dropdownContent.classList.remove('show');
   }
 });
+
+// JavaScript to handle the mobile menu toggle
+const menuToggle = document.querySelector('.menu-icon');
+const menuList = document.querySelector('#menu');
+
+menuToggle.addEventListener('click', () => {
+  menuList.classList.toggle('active');
+});
