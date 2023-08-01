@@ -37,19 +37,11 @@
   line-height: 25px;
 }
 
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
 button {
   width: 200px;
   padding: 15px 0;
   text-align: center;
-  margin: 10px;
+  margin: 20px 10px;
   border-radius: 25px;
   font-weight: bold;
   border: 2px solid #009688;
@@ -80,7 +72,7 @@ button:hover span {
 
 .banner {
   width: 100%;
-  height: calc(100vh - 80px); /* Adjust height to account for navbar */
+  height: 100vh;
   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
   background-size: cover;
   background-position: center;
@@ -214,10 +206,5 @@ button:hover span {
   #menu.active {
     display: flex;
     flex-direction: column;
-  }
-
-  /* Add padding to the top of the content for mobile view */
-  .content {
-    padding-top: 20px;
   }
 }
