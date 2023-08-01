@@ -20,6 +20,8 @@
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  position:relative;
+  z-index: 100;
 }
 
 .logo {
@@ -71,12 +73,6 @@
   overflow: hidden;
   transition: max-height 0.3s ease-out;
   flex-direction: column;
-  right: auto; /* Reset the right position */
-  left: 0;  /* Align the dropdown to the left on mobile */
-  min-height: 160px; /* Adjust the width for mobile */
-  max-height: 0;
-  top: 100%; /* Adjust the top position for mobile */
-  background-size: cover; /* Optimize the background size for mobile */
 }
 
 .dropdown-content.show {
@@ -110,21 +106,14 @@
   .navbar {
     flex-direction: column;
     height: auto;
-    padding: 5px;
   }
 
   .navbar ul li {
-    margin: 0 10px;
+    margin: 10px 0;
   }
 
-
-  .navbar ul li a {
-    font-size: 14px;
-  }
   .navbar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
   }
 
@@ -141,5 +130,27 @@
   #menu.active {
     display: flex;
     flex-direction: column;
+  }
+
+  /* Hide the dropdown on mobile */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #5c5c5c6e;
+    min-width: 300px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    top: 100%; /* Adjust the top position for mobile */
+    left: 0; /* Align the dropdown to the left on mobile */
+    z-index: 999; /* Set a higher z-index to make the dropdown overlap the main content */
+    max-height: 500px; /* Adjust the max-height to show the entire dropdown without scrolling */
+    overflow-y: auto; /* Add vertical scrollbar when necessary */
+    flex-direction: column; /* Display dropdown items in a column */
+  }
+
+  .dropdown.clicked .dropdown-content {
+    display: block;
+    max-height: 500px; /* Adjust the max-height for mobile */
   }
 }
