@@ -19,11 +19,12 @@
   flex-direction: column;
 }
 
-/* Main Content Styles */
+/* Main Content Styles*/
 .content {
   text-align: center;
   color: #fff;
   padding: 20px;
+  margin-top: 80px; /* Add margin to push content below the navbar */
 }
 
 .content h1 {
@@ -189,7 +190,7 @@ button:hover span {
   }
 
   .menu-icon {
-    display: block; /* Change display to block */
+    display: none;
     font-size: 1.5rem;
     background: none;
     border: none;
@@ -197,14 +198,15 @@ button:hover span {
     cursor: pointer;
   }
 
-  /* Hide the desktop menu on mobile */
-  .navbar ul {
-    display: none;
-  }
-
   /* Show the mobile menu when active */
   #menu.active {
     display: flex;
     flex-direction: column;
+  }
+
+  /* Reset padding and margin for mobile view */
+  .navbar {
+    padding: 0;
+    margin-bottom: 20px;
   }
 }
