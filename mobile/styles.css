@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  position:relative;
+  position: relative;
   z-index: 100;
 }
 
@@ -72,16 +72,9 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  flex-direction: column;
 }
 
 .dropdown-content.show {
-  max-height: 500px;
-}
-
-/* Show the dropdown content when clicking on the parent */
-.dropdown.clicked .dropdown-content {
-  display: block;
   max-height: 500px;
 }
 
@@ -141,16 +134,16 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    top: 100%; /* Adjust the top position for mobile */
-    left: 0; /* Align the dropdown to the left on mobile */
-    z-index: 999; /* Set a higher z-index to make the dropdown overlap the main content */
-    max-height: 500px; /* Adjust the max-height to show the entire dropdown without scrolling */
-    overflow-y: auto; /* Add vertical scrollbar when necessary */
-    flex-direction: column; /* Display dropdown items in a column */
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    max-height: 500px;
+    overflow-y: auto;
+    flex-direction: column;
   }
 
   .dropdown.clicked .dropdown-content {
     display: block;
-    max-height: 500px; /* Adjust the max-height for mobile */
+    max-height: 500px;
   }
 }
