@@ -318,4 +318,27 @@ button:hover span {
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0);
 }
-/* Footer styles if you have a footer *
+
+/* Glowing effect on hover for phone number links */
+.contact-item p a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+.contact-item p a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.contact-item p a:hover::before {
+  opacity: 0.4;
+}
