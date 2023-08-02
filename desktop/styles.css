@@ -81,13 +81,15 @@ button:hover span {
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.581);
+  background-color: rgba(0, 0, 0, 0.767);
   width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  z-index: 1;
+  position: relative;
 }
 
 .logo {
