@@ -12,7 +12,7 @@ servicesDropdownToggle.addEventListener('click', (event) => {
   event.preventDefault();
   if (window.innerWidth <= 768) {
     // Only toggle the dropdown if the screen is in mobile view
-    dropdownContent.style.maxHeight = dropdownContent.style.maxHeight ? null : dropdownContent.scrollHeight + 'px';
+    dropdownContent.classList.toggle('show'); // Toggle the 'show' class on the dropdown content
   }
 });
 
@@ -26,4 +26,3 @@ document.addEventListener('click', (event) => {
     dropdownContent.style.maxHeight = null;
   }
 });
-

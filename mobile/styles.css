@@ -1,91 +1,16 @@
-/* Global Styles */
+/* Apply box-sizing to include padding and border in element's width */
 * {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
-.menu-icon {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-#menu.active {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Main Content Styles */
-.content {
-  text-align: center;
-  color: #fff;
-  padding: 20px;
-}
-
-.content h1 {
-  font-size: 35px;
-  margin-top: 40px;
-}
-
- p {
-  margin: 10px auto;
-  font-weight: 100;
-  line-height: 25px;
-  font-size: small;
-}
-
-/* Formerly Message */
-.formerly-temp {
-  font-size: small;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: -35px;
-  font-family: 'Roboto', sans-serif;
-  
-}
-
-
-button {
-  width: 200px;
-  padding: 15px 0;
-  text-align: center;
-  margin: 20px 10px;
-  border-radius: 25px;
-  font-weight: bold;
-  border: 2px solid #009688;
-  background: transparent;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-span {
-  background: #009688;
-  height: 100%;
-  width: 0;
-  border-radius: 25px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  transition: 0.5s;
-}
-
-button:hover span {
-  width: 100%;
-}
-
-/*-------------------------------------------------------------------------- */
-
+/* Main styles for banner and navbar */
 .banner {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/desktop/Images/background.jpeg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -126,11 +51,7 @@ button:hover span {
   padding: 5px 10px;
 }
 
-.hidden {
-  display: none;
-}
-
-/* Navbar Hovering */
+/* Show the underline on hover for navbar links */
 .navbar ul li::after {
   content: '';
   height: 3px;
@@ -142,6 +63,7 @@ button:hover span {
   transition: 0.5s;
 }
 
+/* Responsive styles for navbar */
 @media screen and (min-width: 769px) {
   .navbar ul li:hover::after {
     width: 100%;
@@ -160,17 +82,12 @@ button:hover span {
   font-size: small;
 }
 
-.dropdown-content.show {
-  max-height: 1000px;
-}
-
-
-
 /* Show the dropdown content when clicking on the parent */
 .dropdown.clicked .dropdown-content {
   max-height: 1000px;
 }
 
+/* Styles for dropdown menu items */
 .dropdown-content li {
   padding: 5px 0;
 }
@@ -183,11 +100,12 @@ button:hover span {
   text-align: left;
 }
 
+/* Hover styles for dropdown menu items */
 .dropdown-content li a:hover {
   background-color: #ffffff42;
 }
 
-/* Responsive Styles */
+/* Responsive styles for mobile view */
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -203,15 +121,6 @@ button:hover span {
     align-items: center;
   }
 
-  .menu-icon {
-    display: block; /* Change display to block */
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-  }
-
   /* Hide the desktop menu on mobile */
   .navbar ul {
     display: none;
@@ -223,7 +132,8 @@ button:hover span {
     flex-direction: column;
   }
 }
-/* Add styles for mobile menu items */
+
+/* Styles for mobile menu items */
 .mobile-menu {
   display: none;
 }
@@ -262,7 +172,7 @@ button:hover span {
   flex-direction: column;
 }
 
-/* Add this to your CSS */
+/* Show the mobile menu and dropdown by default */
 #menu.hidden,
 .mobile-menu.hidden,
 .dropdown-content.hidden {
@@ -273,4 +183,65 @@ button:hover span {
 .mobile-menu,
 .dropdown-content {
   display: none;
+}
+
+/* Main Content Styles */
+.content {
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.content h1 {
+  font-size: 35px;
+  margin-top: 40px;
+}
+
+.content p {
+  margin: 10px auto;
+  font-weight: 100;
+  line-height: 25px;
+  font-size: small;
+}
+
+/* Formerly Message */
+.formerly-temp {
+  font-size: small;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: -35px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Button styles */
+button {
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #009688;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button span animation on hover */
+span {
+  background: #009688;
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover span {
+  width: 100%;
 }
