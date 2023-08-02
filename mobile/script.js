@@ -1,22 +1,25 @@
-// JavaScript to handle the dropdown on click for smaller screens
-const dropdownToggle = document.querySelector('.dropdown a');
+const menuToggle = document.querySelector('.menu-icon');
+const mobileMenu = document.querySelector('.mobile-menu');
+const dropdownToggle = document.querySelector('.dropdown > a');
 const dropdownContent = document.querySelector('.dropdown-content');
 
-dropdownToggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+  dropdownContent.classList.remove('show');
+});
+
+dropdownToggle.addEventListener('click', (event) => {
+  event.preventDefault();
   dropdownContent.classList.toggle('show');
 });
 
-// Close the dropdown if clicked outside of it
-window.addEventListener('click', (event) => {
-  if (!event.target.matches('.dropdown a')) {
+// Close the mobile menu and dropdown if clicked outside of them
+document.addEventListener('click', (event) => {
+  if (!event.target.matches('.menu-icon') && !event.target.closest('.navbar')) {
+    mobileMenu.classList.remove('active');
+  }
+
+  if (!event.target.closest('.dropdown')) {
     dropdownContent.classList.remove('show');
   }
-});
-
-// JavaScript to handle the mobile menu toggle
-const menuToggle = document.querySelector('.menu-icon');
-const menuList = document.querySelector('#menu');
-
-menuToggle.addEventListener('click', () => {
-  menuList.classList.toggle('active');
 });

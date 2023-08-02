@@ -31,11 +31,23 @@
   margin-top: 40px;
 }
 
-.content p {
-  margin: 20px auto;
+ p {
+  margin: 10px auto;
   font-weight: 100;
   line-height: 25px;
+  font-size: small;
 }
+
+/* Formerly Message */
+.formerly-temp {
+  font-size: small;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: -35px;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
 
 button {
   width: 200px;
@@ -130,8 +142,10 @@ button:hover span {
   transition: 0.5s;
 }
 
-.navbar ul li:hover::after {
-  width: 100%;
+@media screen and (min-width: 769px) {
+  .navbar ul li:hover::after {
+    width: 100%;
+  }
 }
 
 /* Dropdown styles */
@@ -140,7 +154,6 @@ button:hover span {
   position: absolute;
   background-color: #5c5c5c24;
   min-width: 200px;
-  max-height: 0px;
   overflow-y: auto;
   flex-direction: column;
   transition: max-height 0.5s ease-in;
@@ -148,8 +161,10 @@ button:hover span {
 }
 
 .dropdown-content.show {
-  max-height: 100px;
+  max-height: 1000px;
 }
+
+
 
 /* Show the dropdown content when clicking on the parent */
 .dropdown.clicked .dropdown-content {
@@ -207,4 +222,55 @@ button:hover span {
     display: flex;
     flex-direction: column;
   }
+}
+/* Add styles for mobile menu items */
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-menu li {
+  margin: 10px 0;
+}
+
+.mobile-menu li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.mobile-menu .dropdown-content {
+  display: none;
+  position: static;
+  background-color: #5c5c5c24;
+  min-width: 200px;
+  overflow-y: auto;
+}
+
+.mobile-menu .dropdown.show .dropdown-content {
+  display: block;
+}
+
+.mobile-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add this to your CSS */
+#menu.hidden,
+.mobile-menu.hidden,
+.dropdown-content.hidden {
+  display: block;
+}
+
+/* Hide the mobile menu and dropdown by default */
+.mobile-menu,
+.dropdown-content {
+  display: none;
 }
