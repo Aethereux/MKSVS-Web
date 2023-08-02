@@ -8,7 +8,8 @@
   font-family: 'Roboto', sans-serif;
 }
 
-/* Main Content Styles*/
+/* index.html Content Styles*/
+
 .formerly-temp {
   font-size: medium;
   font-weight: 900;
@@ -68,6 +69,17 @@ span {
 button:hover span {
   width: 100%;
 }
+
+/* Adding animation */
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.content, .contact {
+  animation: fadeIn 2s ease-in-out;
+}
+
 
 /*-------------------------------------------------------------------------- */
 
