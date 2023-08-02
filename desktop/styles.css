@@ -9,6 +9,14 @@
 }
 
 /* Main Content Styles*/
+.formerly-temp {
+  font-size: medium;
+  font-weight: 900;
+  font-style: italic;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+}
 .content {
   width: 100%;
   position: absolute;
@@ -20,7 +28,7 @@
 
 .content h1 {
   font-size: 70px;
-  margin-top: 80px;
+  margin-top: -25px;
 }
 
 .content p {
@@ -28,6 +36,7 @@
   font-weight: 100;
   line-height: 25px;
 }
+
 
  button {
   width: 200px;
