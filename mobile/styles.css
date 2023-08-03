@@ -9,7 +9,7 @@
 /* Main styles for banner and navbar */
 .banner-home {
   width: 100%;
-  height: 200%;
+  height: auto;
   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
   background-size: cover;
   background-position: center;
@@ -18,7 +18,7 @@
 
 .banner-about {
   width: 100%;
-  height: 160vh;
+  height: auto;
   background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/desktop/Images/background.jpeg);
   background-size: cover;
   background-position: center;
