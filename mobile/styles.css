@@ -7,6 +7,16 @@
 }
 
 /* Main styles for banner and navbar */
+
+.banner-contact {
+  width: auto;
+  height:auto;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/desktop/Images/background.jpeg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
 .banner-home {
   width: 100%;
   height: auto;
