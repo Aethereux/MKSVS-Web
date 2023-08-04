@@ -240,8 +240,8 @@
 }
 
 .content p {
-  margin: 15px auto;
-  font-weight: 100;
+  margin-top: 1px ;
+  font-weight: 500;
   line-height: 25px;
   font-size: small;
 }
@@ -261,7 +261,6 @@
   font-size: small;
   font-weight: 400;
   font-style: italic;
-  margin-bottom: 10px;
   font-family: 'Roboto', sans-serif;
 }
 
