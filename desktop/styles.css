@@ -152,9 +152,9 @@ button:hover .index-span {
 }
 
 .logo {
+  position: relative;
   width: 120px;
   cursor: pointer;
-
 }
 
 .navbar ul {
