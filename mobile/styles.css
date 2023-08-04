@@ -442,15 +442,15 @@ a:hover {
   width: 100%;
   overflow: hidden;
   position: relative;
-  height: 500px; /* Set the height according to your images */
+  height: 400px; /* Set the height according to your images */
   cursor: pointer;
   transform: translateX(0);
   background-color: #3333335e;
 }
 
 .sliding-container img {
-  width: 550px;
-  height: 400px;
+  width: 350px;
+  height: 290px;
   position: absolute;
   top: 50px;
   left: 50%;
