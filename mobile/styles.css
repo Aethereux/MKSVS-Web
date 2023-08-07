@@ -266,7 +266,22 @@
 }
 
 /* Button styles */
-button {
+
+.menu-icon {
+  width: 150px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-index {
   width: 150px;
   padding: 15px 0;
   text-align: center;
