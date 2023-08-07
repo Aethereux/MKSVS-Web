@@ -15,22 +15,29 @@ window.addEventListener('click', (event) => {
 
 
 // Sliding shts
-const images = document.querySelectorAll('.sliding-container img');
-let index = 0;
-
-function slideImages() {
+function slideImages(images, currentIndex) {
   images.forEach((img, i) => {
-    if (i === index) {
+    if (i === currentIndex) {
       img.style.opacity = '1';
     } else {
       img.style.opacity = '0';
     }
   });
-  index = (index + 1) % images.length;
 }
 
-function nextImage() {
-  slideImages();
+const containers = [
+  document.querySelectorAll('.sliding-container img'),
+  document.querySelectorAll('.sliding-container-keydupe1 img'),
+  document.querySelectorAll('.sliding-container-keydupe2 img')
+];
+
+const indices = [0, 0, 0]; // Initialize indices for each container class
+
+function nextImage(containerIndex) {
+  slideImages(containers[containerIndex], indices[containerIndex]);
+  indices[containerIndex] = (indices[containerIndex] + 1) % containers[containerIndex].length;
 }
 
-setInterval(nextImage, 5000); // Change image every 5 seconds (5000 milliseconds)
+setInterval(() => nextImage(0), 2000); // Change image for .sliding-container every 5 seconds (5000 milliseconds)
+setInterval(() => nextImage(1), 2000); // Change image for .sliding-container-keydupe1 every 1 second (1000 milliseconds)
+setInterval(() => nextImage(2), 2500); // Change image for .sliding-container-keydupe2 every 1.5 seconds (1500 milliseconds)
