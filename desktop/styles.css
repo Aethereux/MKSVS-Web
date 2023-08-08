@@ -307,7 +307,7 @@ button:hover .index-span {
   font-size: 1.875rem;
   margin-bottom: 20px;
   text-align: center;
-  color: var(--light-color)fff;
+  color: var(--light-color);
 }
 
 .contact-info {
@@ -321,7 +321,7 @@ button:hover .index-span {
   align-items: center;
   margin: 10px;
   padding: 5px 10px;
-  background-color: rgba(123, 123, 123, 0.648);
+  background-color: var(--transparent-color);
   border-radius: 5px;
   box-shadow: 0 2px 4px var(--shadow-color);
 }
@@ -334,7 +334,7 @@ button:hover .index-span {
 
 .contact-item p {
   font-size: 1rem;
-  color: var(--dark-color);
+  color: var(--light-color);
 }
 
 .location {
@@ -342,6 +342,8 @@ button:hover .index-span {
   align-items: center;
   justify-content: center;
   margin: 20px;
+  height: auto;
+  width: auto;
 }
 
 .location i {
@@ -352,13 +354,15 @@ button:hover .index-span {
 
 .location p {
   font-size: 1rem;
-  color: var(--light-color)fff;
+  color: var(--light-color);
 }
 
 .facebook-page {
   display: flex;
   justify-content: center;
   margin: 20px;
+  height: auto;
+  width: auto;
 }
 
 .facebook-page iframe {
@@ -415,7 +419,7 @@ button:hover .index-span {
 .description {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--light-color)fff;
+  color: var(--light-color);
   margin-bottom: 20px;
   width: auto;
 }
@@ -529,7 +533,7 @@ a:hover {
   max-width: 1425px;
   margin: auto;
   padding: 1.875rem;
-  background-color: var(--light-color)fff6f;
+  background-color: var(--transparent-color);
   border-radius: 10px;
   box-shadow: 0 2px 6px var(--shadow-color);
 }
@@ -537,7 +541,7 @@ a:hover {
 .home-container h1 {
   font-size: 54px;
   font-weight: bold;
-  color: #131313;
+  color: var(--light-color);
   margin-bottom: 0px;
   text-align: center;
 }
@@ -548,14 +552,14 @@ a:hover {
 
 .home-container h2 {
   font-size: 42px;
-  color: var(--dark-color)000;
+  color: var(--light-color);
   margin-bottom: 10px;
   padding-top: 1.875rem;
 }
 
 .home-container p {
   font-size: 0.875rem;
-  color: var(--dark-color)000;
+  color: var(--light-color);
   line-height: 1.5;
   margin-bottom: 15px;
 }
@@ -567,20 +571,20 @@ a:hover {
 }
 
 .home-container li {
-  color: var(--dark-color)000;
+  color: var(--light-color);
   margin: 25px;
 }
 
 .home-container a.contact-button {
   display: inline-block;
   background-color: var(--primary-color);
-  color: var(--dark-color)000;
+  color: var(--dark-color);
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 5px;
-  border: var(--secondary-color)74 solid 1px;
+  border: var(--dark-color) solid 1px;
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -611,7 +615,7 @@ a:hover {
 
 .service h2 {
   font-size: 24px;
-  color: var(--dark-color)000;
+  color: var(--dark-color);
   margin-top: 0;
   border-bottom: 2px solid #007a63;
   padding-bottom: 10px;
@@ -629,7 +633,7 @@ a:hover {
 
 .desc-keydupe {
   font-size: 1rem;
-  color: var(--dark-color)000;
+  color: var(--dark-color);
   line-height: 1.5;
   height: auto;
   width: auto;
