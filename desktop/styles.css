@@ -1,3 +1,20 @@
+
+.banner-common {
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+:root {
+    --primary-color: #009688;
+    --secondary-color: #f8f8f8;
+    --dark-color: #000;
+    --light-color: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transparent-color: rgba(0, 0, 0, 0);
+}
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 
@@ -10,7 +27,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f8f8;
+  background-color: var(--secondary-color);
   margin: 0;
   padding: 0;
 }
@@ -32,7 +49,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
-  color: #fff;
+  color: var(--light-color);
 }
 
 .content h1 {
@@ -54,7 +71,7 @@ body {
   margin: 20px 10px;
   border-radius: 25px;
   font-weight: bold;
-  border: 2px solid #009688;
+  border: 2px solid var(--primary-color);
   background: transparent;
   color: white;
   cursor: pointer;
@@ -63,7 +80,7 @@ body {
 }
 
 .index-span {
-  background: #009688;
+  background: var(--primary-color);
   height: 100%;
   width: 0;
   border-radius: 25px;
@@ -79,13 +96,8 @@ button:hover .index-span {
 }
 
 /* Adding animation */
-@keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
 .content, .contact, .container {
-  animation: fadeIn 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
 }
 
 
@@ -106,6 +118,16 @@ button:hover .index-span {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+
+.banner-services {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-bottom: 10%;
 }
 
 .banner-contact {
@@ -172,7 +194,7 @@ button:hover .index-span {
 
 .navbar ul li a {
   text-decoration: none;
-  color: #fff;
+  color: var(--light-color);
 }
 
 /* Navbar Hovering */
@@ -180,7 +202,7 @@ button:hover .index-span {
   content: '';
   height: 3px;
   width: 0;
-  background: #009688;
+  background: var(--primary-color);
   position: absolute;
   left: 0;
   bottom: -2.5px;
@@ -218,7 +240,7 @@ button:hover .index-span {
 }
 
 .dropdown-content li a {
-  color: #000;
+  color: var(--dark-color);
   text-decoration: none;
   display: block;
   padding: 5px;
@@ -226,7 +248,7 @@ button:hover .index-span {
 }
 
 .dropdown-content li a:hover {
-  background-color: #ffffff42;
+  background-color: var(--light-color)fff42;
 }
 
 /* Responsive Styles */
@@ -250,7 +272,7 @@ button:hover .index-span {
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--light-color);
     cursor: pointer;
   }
   
@@ -269,7 +291,7 @@ button:hover .index-span {
   width: auto;
   margin: 10px auto;
   margin-bottom: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 10px var(--shadow-color);
   border-radius: 10px;
   padding: 10%;
 }
@@ -282,10 +304,10 @@ button:hover .index-span {
 }
 
 .contact h2 {
-  font-size: 30px;
+  font-size: 1.875rem;
   margin-bottom: 20px;
   text-align: center;
-  color: #ffffff;
+  color: var(--light-color)fff;
 }
 
 .contact-info {
@@ -301,18 +323,18 @@ button:hover .index-span {
   padding: 5px 10px;
   background-color: rgba(123, 123, 123, 0.648);
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .contact-item i {
   margin-right: 10px;
-  font-size: 18px;
-  color: #009688;
+  font-size: 1.125rem;
+  color: var(--primary-color);
 }
 
 .contact-item p {
-  font-size: 16px;
-  color: #000;
+  font-size: 1rem;
+  color: var(--dark-color);
 }
 
 .location {
@@ -324,13 +346,13 @@ button:hover .index-span {
 
 .location i {
   margin-right: 10px;
-  font-size: 18px;
-  color: #009688;
+  font-size: 1.125rem;
+  color: var(--primary-color);
 }
 
 .location p {
-  font-size: 16px;
-  color: #ffffff;
+  font-size: 1rem;
+  color: var(--light-color)fff;
 }
 
 .facebook-page {
@@ -347,7 +369,7 @@ button:hover .index-span {
 
 /* Glowing effect on hover for phone number links */
 .contact-item p a {
-  color: #fff;
+  color: var(--light-color);
   text-decoration: none;
   position: relative;
 }
@@ -359,7 +381,7 @@ button:hover .index-span {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--light-color);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s ease-in-out;
@@ -378,7 +400,7 @@ button:hover .index-span {
   margin: 10px auto;
   margin-bottom: 10px;
   background-color: #52525242;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 10px var(--shadow-color);
   border-radius: 10px;
   padding: 10%;
 }
@@ -386,14 +408,14 @@ button:hover .index-span {
 .title {
   font-size: 28px;
   font-weight: bold;
-  color: #009688;
+  color: var(--primary-color);
   margin-bottom: 15px;
 }
 
 .description {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: var(--light-color)fff;
   margin-bottom: 20px;
   width: auto;
 }
@@ -405,7 +427,7 @@ button:hover .index-span {
 
 /* Add a subtle border bottom for the titles */
 .title {
-  border-bottom: 2px solid #009688;
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 10px;
 }
 
@@ -417,7 +439,7 @@ button:hover .index-span {
 
 /* Add a link style for external links */
 a {
-  color: #009688;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -432,7 +454,6 @@ a:hover {
   overflow: hidden;
   position: relative;
   height: 500px; /* Set the height according to your images */
-  cursor: pointer;
   transform: translateX(0);
   background-color: #3333335e;
 }
@@ -453,14 +474,64 @@ a:hover {
   opacity: 1;
 }
 
+
+.sliding-container-keydupe1 {
+  height: auto;
+  width: auto;
+  overflow: visible;
+  height: auto; /* Set the height according to your images */
+  cursor: pointer;
+  margin-left: 10%;
+  flex: 30%;
+}
+
+.sliding-container-keydupe1 img {
+  width: auto;
+  max-width: 20%;
+  height: auto;
+  max-height: 20%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.sliding-container-keydupe1 img:first-child {
+  opacity: 1;
+}
+
+.sliding-container-keydupe2 {
+  height: auto;
+  width: auto;
+  overflow: visible;
+  height: auto; /* Set the height according to your images */
+  cursor: pointer;
+  margin-left: 10%;
+  flex: 30%;
+}
+
+.sliding-container-keydupe2 img {
+  width: auto;
+  max-width: 20%;
+  height: auto;
+  max-height: 20%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  left: 65%;
+}
+
+.sliding-container-keydupe2 img:first-child {
+  opacity: 1;
+}
+
 /* Home Styles */
 .home-container {
   max-width: 1425px;
   margin: auto;
-  padding: 30px;
-  background-color: #ffffff6f;
+  padding: 1.875rem;
+  background-color: var(--light-color)fff6f;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px var(--shadow-color);
 }
 
 .home-container h1 {
@@ -477,14 +548,14 @@ a:hover {
 
 .home-container h2 {
   font-size: 42px;
-  color: #000000;
+  color: var(--dark-color)000;
   margin-bottom: 10px;
-  padding-top: 30px;
+  padding-top: 1.875rem;
 }
 
 .home-container p {
-  font-size: 14px;
-  color: #000000;
+  font-size: 0.875rem;
+  color: var(--dark-color)000;
   line-height: 1.5;
   margin-bottom: 15px;
 }
@@ -496,23 +567,88 @@ a:hover {
 }
 
 .home-container li {
-  color: #000000;
+  color: var(--dark-color)000;
   margin: 25px;
 }
 
 .home-container a.contact-button {
   display: inline-block;
-  background-color: #009688;
-  color: #000000;
+  background-color: var(--primary-color);
+  color: var(--dark-color)000;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 5px;
-  border: #f8f8f874 solid 1px;
+  border: var(--secondary-color)74 solid 1px;
   transition: background-color 0.2s ease-in-out;
 }
 
 .home-container a.contact-button:hover {
   background-color: #007a63;
+}
+
+/* Services Styles */
+
+.service .container-keydupe {
+  display: flex;
+  flex-direction: row; /* Align children horizontally */
+  align-items: flex-start; /* Align items at the top of the container */
+  justify-content: space-between; /* Create space between items */
+}
+
+.service {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  margin-bottom: 20px;
+  color: black;
+  margin: 20px;
+  height: 100vh;
+  width: auto;
+}
+
+.service h2 {
+  font-size: 24px;
+  color: var(--dark-color)000;
+  margin-top: 0;
+  border-bottom: 2px solid #007a63;
+  padding-bottom: 10px;
+  margin-left: 20px;
+}
+
+.service h3 {
+  font-size: 20;
+  color: var(--dark-color);
+  margin-top: 10px;
+  height: auto;
+  width: auto;
+  margin-left: 20px;
+}
+
+.desc-keydupe {
+  font-size: 1rem;
+  color: var(--dark-color)000;
+  line-height: 1.5;
+  height: auto;
+  width: auto;
+  max-width: 700px;
+  position: relative;
+  margin-left: 20px;
+  flex: 70%;
+}
+
+
+
+@media screen and (max-width: 576px) {
+  /* Add styles for small devices here */
+}
+
+@media screen and (max-width: 992px) {
+  /* Add styles for large devices here */
+}
+
+@media screen and (max-width: 1200px) {
+  /* Add styles for extra large devices here */
 }
