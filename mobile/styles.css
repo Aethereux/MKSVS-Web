@@ -484,14 +484,13 @@ padding: 10%;
 }
 
 .title {
-font-size: 5vh;
 font-weight: bold;
 color: var(--primary-color);
 margin-bottom: 15px;
 }
 
 .description {
-font-size: 2vh;
+font-size: small;
 line-height: 1.6;
 color: var(--light-color);
 margin-bottom: 20px;
@@ -664,6 +663,7 @@ border: var(--dark-color) solid 1px;
 transition: background-color 0.2s ease-in-out;
 }
 
+
 .home-container a.contact-button:hover {
 background-color: #007a63;
 }
@@ -801,21 +801,23 @@ flex: 70%;
   width: min(80%, 80%);
   height: min(80%, 80%);
   margin-top: 15%;
-  border: 3px solid hotpink;
   margin-inline: auto;
   padding: min(2vh, 10%);
 }
 
 .h1-services {
   color: var(--dark-red-color);
-  padding: 0.5rem;
-  border-bottom: var(--primary-color) solid 2px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: solid 2px var(--primary-color);
+  font: bold;
 }
 
 .h2-services {
   color: var(--primary-color);
   padding: 0.5rem;
   font-size: medium;
+  font-style: italic;
 }
 
 .p-services {
@@ -823,3 +825,29 @@ flex: 70%;
   padding: 0.2rem;
   font-size: small;
 }
+
+.p-services + .p-services {
+  margin-top: 20px
+}
+
+.h1-services:hover {
+  transform: scale(1.02);
+  transition: transform 0.2 ease-in-out;
+}
+
+.container-services a.learnmore-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: var(--dark-color) solid 1px;
+  transition: background-color 0.3s ease-in-out;
+  }
+  
+  .container-services a.learnmore-button:hover {
+    background-color: var(--dark-red-color);
+  }
