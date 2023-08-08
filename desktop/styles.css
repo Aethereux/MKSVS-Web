@@ -248,7 +248,7 @@ button:hover .index-span {
 }
 
 .dropdown-content li a:hover {
-  background-color: var(--light-color)fff42;
+  background-color: var(--light-color);
 }
 
 /* Responsive Styles */
