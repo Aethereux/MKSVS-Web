@@ -342,9 +342,10 @@ background-color: var(--transparent-color);
   align-items: center;
 }
 
+
 .menu-icon {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   background: none;
   border: none;
   color: var(--light-color);
@@ -358,6 +359,37 @@ background-color: var(--transparent-color);
 }
 }
 
+
+@media screen and (max-width: 1180px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .navbar ul li {
+    margin: 10px 0;
+  }
+  
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .menu-icon {
+    font-size: 1rem;
+    background: none;
+    border: none;
+    color: var(--light-color);
+    cursor: pointer;
+  }
+  
+  /* Show the mobile menu when active */
+  #menu.active {
+    display: flex;
+    flex-direction: column;
+  }
+  }
 /*  Contact Styles  */
 
 .container-contact {
@@ -793,7 +825,6 @@ flex: 70%;
     display: none; /* Hide by default, will be shown with JavaScript */
   }
 }
-
 
 /* Services Styles */
 
