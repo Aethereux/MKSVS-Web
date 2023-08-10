@@ -1018,9 +1018,6 @@ flex: 70%;
 }
 
 @media (min-width:768px) {
-  .mobile-menu {
-    border: red 2px solid;
-  }
 
   .mobile-menu li {
     font-size: calc(10px + (24 - 16) * ((100vw - 320px) / (2568 - 768)))
