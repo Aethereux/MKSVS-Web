@@ -177,7 +177,7 @@ transition: opacity 2s ease-in-out;
 /*-------------------------------------------------------------------------- */
 .banner-home {
 width: 100%;
-height: 100%;
+height: auto;
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
 background-size: cover;
 background-position: center;
@@ -186,16 +186,17 @@ padding-bottom: 10%;
 }
 .banner {
 width: 100%;
-height: 100vh;
+height: auto;
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
 background-size: cover;
 background-position: center;
 position: relative;
+padding-bottom: 10%;
 }
 
 .banner-services {
-width: min(100%, 100%);
-height: min(100%, 100%);
+width: 100%;
+height: auto;
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/desktop/Images/background.jpeg);
 background-size: cover;
 background-position: center;
@@ -307,7 +308,7 @@ max-height: 100px;
 
 /* Show the dropdown content when clicking on the parent */
 .dropdown.clicked .dropdown-content { 
-max-height: 1000px;
+max-height: min(100%,100px);
 }
 
 .dropdown-content li {
@@ -359,37 +360,6 @@ background-color: var(--transparent-color);
 }
 }
 
-
-@media screen and (max-width: 1180px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-  }
-  
-  .navbar ul li {
-    margin: 10px 0;
-  }
-  
-  .navbar ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  
-  .menu-icon {
-    font-size: 1rem;
-    background: none;
-    border: none;
-    color: var(--light-color);
-    cursor: pointer;
-  }
-  
-  /* Show the mobile menu when active */
-  #menu.active {
-    display: flex;
-    flex-direction: column;
-  }
-  }
 /*  Contact Styles  */
 
 .container-contact {
@@ -754,6 +724,7 @@ flex: 70%;
 
 @media screen and (max-width: 576px) {
 /* Add styles for small devices here */
+
 }
 
 @media screen and (max-width: 992px) {
@@ -762,6 +733,34 @@ flex: 70%;
 
 @media screen and (max-width: 1200px) {
 /* Add styles for extra large devices here */
+.navbar {
+  flex-direction: column;
+  height: auto;
+}
+
+.navbar ul li {
+  margin: 10px 0;
+}
+
+.navbar ul {
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.menu-icon {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: var(--light-color);
+  cursor: pointer;
+}
+
+/* Show the mobile menu when active */
+#menu.active {
+  display: flex;
+  flex-direction: column;
+}
 }
 
 /* Existing CSS content truncated for brevity... */
@@ -829,8 +828,8 @@ flex: 70%;
 /* Services Styles */
 
 .container-services{
-  width: min(80%, 80%);
-  height: min(80%, 80%);
+  width: max(80%, 200px);
+  height: auto;
   margin-top: 15%;
   margin-inline: auto;
   padding: min(2vh, 10%);
@@ -882,3 +881,108 @@ flex: 70%;
   .container-services a.learnmore-button:hover {
     background-color: var(--dark-red-color);
   }
+
+
+  /* All Services Styles */
+
+  .automotive-container,
+  .commercial-container,
+  .glassdoor-container,
+  .keydupe-container,
+  .locksmith-container,
+  .vaultsvs-container {
+    width: min(80%,1000px);
+    height: auto;
+    margin-inline: auto;
+    margin-top: 10%;
+    color: var(--light-color);
+  }
+
+  .automotive-h1,
+  .commercial-h1,
+  .glassdoor-h1,
+  .keydupe-h1,
+  .locksmith-h1,
+  .vaultsvs-h1 {
+    padding-bottom: 0.5rem;
+    color: var(--dark-red-color);
+    font-weight: 900;
+    border-bottom: 3px solid var(--primary-color);
+  }
+
+  .automotive-p,
+  .commercial-p,
+  .glassdoor-p,
+  .keydupe-p,
+  .locksmith-p,
+  .vaultsvs-p {
+    color: var(--secondary-color);
+    font-size: small;
+    padding-bottom: 1rem;
+  }
+
+  .automotive-h2,
+  .commercial-h2,
+  .glassdoor-h2,
+  .keydupe-h2,
+  .locksmith-h2,
+  .vaultsvs-h2 {
+    color: var(--primary-color);
+    font-weight: 900;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .automotive-h3,
+  .commercial-h3,
+  .glassdoor-h3,
+  .keydupe-h3,
+  .locksmith-h3,
+  .vaultsvs-h3 {
+    color: var(--dark-red-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    width: 80%;
+    font-size: x-large;
+  }
+
+  .automotive-ul,
+  .commercial-ul,
+  .glassdoor-ul,
+  .keydupe-ul,
+  .locksmith-ul,
+  .vaultsvs-ul  {
+    list-style: circle;
+    margin-left: 2rem;
+    color: var(--primary-color);
+    font-weight: 900;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    font-size: 0.90rem;
+  }
+
+  .automotive-ul li,
+  .commercial-ul li,
+  .glassdoor-ul li,
+  .keydupe-ul li,
+  .locksmith-ul li,
+  .vaultsvs-ul li {
+    padding: 0.5rem;
+  }
+
+  .image-contents,
+  .commercial-image-contents,
+  .glassdoor-image-contents,
+  .keydupe-image-contents,
+  .locksmith-image-contents,
+  .vaultsvs-image-contents{
+
+    margin-inline: auto;
+    padding: 10%;
+  }
+
+  .img-contents {
+    width: min(10rem, 50%);
+    flex-direction: column;
+  }
+
