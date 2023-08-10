@@ -48,3 +48,4 @@ function nextImage() {
 }
 
 setInterval(nextImage, 5000); // Change image every 5 seconds (5000 milliseconds)
+
