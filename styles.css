@@ -191,7 +191,7 @@ transition: opacity 2s ease-in-out;
 /*-------------------------------------------------------------------------- */
 .banner-home {
 width: 100%;
-height: auto;
+height: 100vh;
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/Images/background.jpeg);
 background-size: cover;
 background-position: center;
@@ -200,7 +200,7 @@ padding-bottom: 10%;
 }
 .banner {
 width: 100%;
-height: auto;
+height: 100vh;
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/Images/background.jpeg);
 background-size: cover;
 background-position: center;
@@ -210,7 +210,7 @@ padding-bottom: 10%;
 
 .banner-services {
 width: 100%;
-height: auto;
+height: 100vh;
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/Images/background.jpeg);
 background-size: cover;
 background-position: center;
@@ -230,24 +230,21 @@ position: relative;
 
 .banner-about {
 width: 100%;
-height: calc(min(135vh, 1000px) - 1%);
+height: calc(100vh + 10vh);
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/Images/background.jpeg);
 background-size: cover;
-background-position: center;
+background-position: center center;
 position: relative;
-padding-bottom: 10%;
 }
 
 
 .banner-index {
 width: 100%;
-height: auto;
+height: 100vh;
 background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/Images/background.jpeg);
 background-size: cover;
 background-position: center center;
 position: relative;
-margin: 0;
-padding: 0;
 }
 
 .navbar {
@@ -317,7 +314,7 @@ width: 100%;
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 0.5rem;
+    font-size: calc(0.3rem + 1vw);
   }
 
   .navbar ul li {
@@ -327,7 +324,6 @@ width: 100%;
   .navbar ul {
     flex-direction: row;
     align-items: center;
-    font-size: 0.5rem;
   }
   
   .logo {
@@ -365,17 +361,17 @@ width: 100%;
 }
 
 .sliding-container {
-  width: 100%;
-  height: auto;
+  width: 99%; 
   overflow: hidden;
   position: relative;
-  height: calc(300px + 20vw); /* Set the height according to your images */
+  min-height: calc(40vh + 10vh);
   background-color: #3333335e;
   margin-inline: auto;
+  margin-top: 5%;
   }
   
   .sliding-container img {
-  width: 80%;
+  width: calc(40vh + 10vh);
   height: auto;
   max-width: 450px;
   max-height: 450px;
@@ -393,9 +389,14 @@ width: 100%;
   }
 
   /* Home Styles */
+
+  .banner-home {
+    height: 100%;
+  }
+
+
 .home-container {
   width: 80%;
-  max-width: 1425px;
   margin: auto;
   padding: 1.875rem;
   background-color: var(--transparent-color);
@@ -463,12 +464,11 @@ width: 100%;
   /* About us Styles */
 
 .container {
-  height: auto;
-  width: 80%;
+  width: 90%;
   margin-inline: auto;
   box-shadow: 0px 2px 10px var(--shadow-color);
   border-radius: 10px;
-  padding-top: 10%;
+  margin-top: 10%;
   }
   
   .title {
@@ -581,10 +581,10 @@ width: 100%;
   border-radius: 10px;
   padding: 10%;
   }
+
   
   .contact {
   padding: 30px;
-  height: auto;
   width: 80%;
   margin-inline: auto;
   }
@@ -682,6 +682,10 @@ width: 100%;
   }
   
   /* All Services Styles */
+
+  .banner {
+    height: 100%;
+  }
 
   .automotive-container,
   .commercial-container,
@@ -810,6 +814,29 @@ width: 100%;
       font-size: calc(5px + 1.5vw);
     }
 
+    .container {
+      width: 90%;
+      margin-inline: auto;
+      box-shadow: 0px 2px 10px var(--shadow-color);
+      border-radius: 10px;
+      margin-top: 10%;
+      }
+      
+      .title {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: calc(18px + 1vw);
+      }
+      
+      .description {
+      font-size: calc(5px + 1vw);
+      line-height: 1.6;
+      color: var(--light-color);
+      margin-bottom: 20px;
+      width: auto;
+      }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -821,19 +848,16 @@ width: 100%;
         display: flex; /* Show the full navbar */
     }
 
-    .banner-about {
-      height: 120vh;
-    }
 }
 
-@media ((min-width:768px) and (max-height: 1400px)) {
+@media (min-width:768px) {
 
   .mobile-menu li {
-    font-size: calc(8px + 0.5vw);
+    font-size: calc(8px + 0.75vw);
   }
 
   .logo {
-    width: calc(120px + 1vw);
+    width: calc(120px + 2vw);
   }
 
   .banner-index {
@@ -841,7 +865,7 @@ width: 100%;
   }
 
   .content {
-    width: calc(80% + 10%);
+    width: calc(80% + 1vw);
   }
 
   .content h1 {
@@ -853,15 +877,25 @@ width: 100%;
   }
 
   .content p {
-    font-size: calc(12px + 0.3vw);
+    font-size: calc(12px + 0.5vw);
   }
 
   .banner-about{
-    height: calc(90vh + 10vh);
+    height: calc(100% + 10vh);
+    padding-bottom: calc(10% + 4vh);
+  }
+
+  .container {
+    width: 90%;
   }
 
   .banner-index {
     height: calc(60vh + 10vh);
   }
+
+  .button-index {
+    font-size: calc(16px);
+  }
+
 
 }
