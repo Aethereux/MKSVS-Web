@@ -463,6 +463,7 @@ width: 100%;
   
   /* About us Styles */
 
+
 .container {
   width: 90%;
   margin-inline: auto;
@@ -574,6 +575,9 @@ width: 100%;
 
   /*  Contact Styles  */
 
+  .banner-contact{
+    height: calc(100vh + 20vh);
+  }
 
 .container-contact {
   margin-inline: auto;
@@ -590,7 +594,7 @@ width: 100%;
   }
   
   .contact h2 {
-  font-size: calc(0.875rem + 1vw);
+  font-size: calc(0.5rem + 1vw);
   margin-bottom: 20px;
   text-align: center;
   color: var(--light-color);
@@ -614,12 +618,12 @@ width: 100%;
   
   .contact-item i {
   margin-right: 10px;
-  font-size: calc(0.525rem + 1vw);
+  font-size: calc(0.4rem + 1vw);
   color: var(--primary-color);
   }
   
   .contact-item p {
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.4rem + 1vw);
   color: var(--light-color);
   }
   
@@ -634,12 +638,12 @@ width: 100%;
   
   .location i {
   margin-right: 10px;
-  font-size: calc(0.625rem + 1vw);
+  font-size: calc(0.4rem + 1vw);
   color: var(--primary-color);
   }
   
   .location p {
-  font-size: calc(0.6rem + 1vw);
+  font-size: calc(0.4rem + 1vw);
   color: var(--light-color);
   }
   
@@ -880,9 +884,8 @@ width: 100%;
     font-size: calc(12px + 0.5vw);
   }
 
-  .banner-about{
-    height: calc(100% + 10vh);
-    padding-bottom: calc(10% + 4vh);
+  .banner-about {
+    height: calc(100vh + 40vh);
   }
 
   .container {
