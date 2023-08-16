@@ -784,7 +784,6 @@ width: 100%;
   .keydupe-image-contents,
   .locksmith-image-contents,
   .vaultsvs-image-contents{
-
     margin-inline: auto;
     padding: 10%;
   }
@@ -793,6 +792,8 @@ width: 100%;
     width: calc(10rem + 2vw);
     flex-direction: column;
   }
+
+  
   
 
 }
@@ -899,6 +900,7 @@ width: 100%;
   .button-index {
     font-size: calc(16px);
   }
+
 
 
 }
