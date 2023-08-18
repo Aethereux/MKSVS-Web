@@ -30,7 +30,8 @@
 }
 
 .mobile-menu {
-  display: none; /* Hide the full navbar by default */
+  display: flex; /* Hide the full navbar by default */
+  justify-content: space-between;
   align-items: center;
   background-color: var(--dark-color);
   width: 100%;
@@ -39,6 +40,13 @@
   left: 0;
   z-index: 10;
 }
+
+.navbar-text {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
 
 .mobile-menu li {
   margin: 0 10px;
@@ -249,7 +257,6 @@ position: relative;
 
 .navbar {
   overflow: visible;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -296,8 +303,7 @@ width: 100%;
 
 /* Ensure navbar doesn't constrain the dropdown */
 .navbar {
-  overflow: visible;
-
+   overflow: visible;
     overflow: visible;
     position: relative;
     z-index: 100; /* Higher z-index to ensure it appears above other content */
@@ -305,16 +311,16 @@ width: 100%;
 
 @media (min-width: 320px) {
   .navbar {
+    display: flex;
     overflow: visible;
     flex-direction: column;
     height: auto;
   }
 
   .navbar-text{
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: calc(0.3rem + 1vw);
+    position: relative;
+    display: flex;
+    font-size: calc(5px + 1vw);
   }
 
   .navbar ul li {
@@ -327,10 +333,10 @@ width: 100%;
   }
   
   .logo {
-    width: 100px;
+    display: flex;
+    width: calc(80px + 2vw);
     cursor: pointer;
     position: relative;
-    align-items: center;   
   }
 
   .content {
@@ -808,7 +814,6 @@ width: 100%;
 
     .mobile-menu {
         display: flex; /* Hide the full navbar */
-
     }
 
     .content h1 {
@@ -816,7 +821,7 @@ width: 100%;
     }
   
     .content p {
-      font-size: calc(5px + 1.5vw);
+      font-size: calc(10.5px + 1.5vw);
     }
 
     .container {
