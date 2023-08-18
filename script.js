@@ -3,11 +3,6 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const servicesDropdownToggle = document.querySelector('.dropdown > a');
 const dropdownContent = document.querySelector('.dropdown-content');
 
-menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
-  dropdownContent.style.maxHeight = null; // Reset the max-height when opening the mobile menu
-});
-
 servicesDropdownToggle.addEventListener('click', (event) => {
   event.preventDefault();
   if (window.innerWidth <= 768) {
