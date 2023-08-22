@@ -29,3 +29,20 @@ function nextImage() {
 }
 
 setInterval(nextImage, 5000); // Change image every 5 seconds (5000 milliseconds)
+
+
+const galleryImages = document.querySelectorAll('.gallery-img');
+const popup = document.getElementById('popup');
+const popupImg = document.getElementById('popupImg');
+const closeBtn = document.getElementById('close');
+
+galleryImages.forEach(image => {
+  image.addEventListener('click', () => {
+    popupImg.src = image.src;
+    popup.style.display = 'block';
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
