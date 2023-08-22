@@ -1,7 +1,4 @@
-const menuToggle = document.querySelector('.menu-icon');
-const mobileMenu = document.querySelector('.mobile-menu');
 const servicesDropdownToggle = document.querySelector('.dropdown > a');
-const dropdownContent = document.querySelector('.dropdown-content');
 
 servicesDropdownToggle.addEventListener('click', (event) => {
   event.preventDefault();
