@@ -1006,4 +1006,43 @@ width: 100%;
     color: var(--primary-color);
     cursor: pointer;
   }
+
+  .home-container h1 {
+    font-size: calc(3vh + 1vw);
+    font-weight: bold;
+    color: var(--light-color);
+    margin-bottom: 0px;
+    text-align: center;
+    }
+    
+    .brand-name {
+    color:var(--dark-red-color);
+    }
+    
+    .home-container h2 {
+    font-size: calc(2vh + 1vw);
+    color: var(--light-color);
+    margin-bottom: 10px;
+    padding-top: 1rem;
+    }
+    
+    .home-container p {
+    font-size: calc(0.5vh + 1vw);
+    color: var(--light-color);
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    }
+    
+    .home-container ul {
+    list-style: disc;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    }
+    
+    .home-container li {
+    color: var(--light-color);
+    margin: 25px;
+    font-size: calc(0.5vh + 1vw);
+    }
 }
