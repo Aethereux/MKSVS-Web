@@ -931,6 +931,21 @@ width: 100%;
     width: calc(120px + 2vw);
   }
 
+  .title {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: calc(3vh + 1vw);
+    }
+    
+    .description {
+    font-size: calc(0.5vh + 1vw);
+    line-height: 1.6;
+    color: var(--light-color);
+    margin-bottom: 20px;
+    width: auto;
+    }
+
   .banner-index {
     padding-bottom: 45%;
   }
