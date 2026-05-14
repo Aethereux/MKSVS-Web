@@ -1,0 +1,39 @@
+---
+interface Props {
+  label: string;
+  href?: string;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { label, href, class: className = '', ...rest } = Astro.props;
+const Tag = href ? 'a' : 'button';
+const props = href
+  ? { href, 'aria-label': label, ...rest }
+  : { type: 'button' as const, 'aria-label': label, ...rest };
+---
+
+<Tag class:list={['icon-btn', className]} {...props}>
+  <slot />
+</Tag>
+
+<style>
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-sm);
+    color: var(--color-muted-foreground);
+    transition: background 0.2s, color 0.2s;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .icon-btn:hover {
+    background: var(--color-muted);
+    color: var(--color-foreground);
+  }
+</style>

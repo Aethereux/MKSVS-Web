@@ -1,0 +1,133 @@
+---
+import Container from './ui/Container.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+}
+
+const { eyebrow, title, subtitle, align = 'left' } = Astro.props;
+---
+
+<section class="page-hero" data-align={align}>
+  <div class="page-hero-bg" aria-hidden="true"></div>
+  <div class="page-hero-grid" aria-hidden="true"></div>
+
+  <Container>
+    <div class="page-hero-inner">
+      {eyebrow && (
+        <span class="eyebrow">
+          <span class="eyebrow-dot animate-pulse-dot"></span>
+          {eyebrow}
+        </span>
+      )}
+
+      <h1 class="text-balance">
+        <slot name="title">{title}</slot>
+      </h1>
+
+      {subtitle && (
+        <p class="page-hero-subtitle text-pretty">
+          {subtitle}
+        </p>
+      )}
+
+      <slot />
+    </div>
+  </Container>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3rem, 9vh, 5.5rem) clamp(2.5rem, 6vh, 4rem);
+    isolation: isolate;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%,
+        color-mix(in srgb, var(--color-primary) 14%, transparent),
+        transparent 60%),
+      var(--color-background);
+  }
+
+  .page-hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(to right,
+        color-mix(in srgb, var(--color-border) 40%, transparent) 1px,
+        transparent 1px),
+      linear-gradient(to bottom,
+        color-mix(in srgb, var(--color-border) 40%, transparent) 1px,
+        transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 60%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 60%);
+  }
+
+  .page-hero-inner {
+    max-width: 56rem;
+  }
+
+  .page-hero[data-align='center'] .page-hero-inner {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    background: color-mix(in srgb, var(--color-muted) 60%, transparent);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-muted-foreground);
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-primary);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5.5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    margin: 0 0 1.25rem 0;
+    max-width: 18ch;
+  }
+
+  .page-hero[data-align='center'] h1 {
+    margin-inline: auto;
+  }
+
+  .page-hero-subtitle {
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    color: var(--color-muted-foreground);
+    max-width: 56ch;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .page-hero[data-align='center'] .page-hero-subtitle {
+    margin-inline: auto;
+  }
+</style>

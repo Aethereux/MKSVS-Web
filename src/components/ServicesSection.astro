@@ -1,0 +1,121 @@
+---
+import Container from './ui/Container.astro';
+import Chip from './ui/Chip.astro';
+import ServiceCard from './ServiceCard.astro';
+import ScrollReveal from './ScrollReveal.astro';
+import { services, categories } from '../data/services';
+---
+
+<section class="section" id="services">
+  <Container>
+    <ScrollReveal class="section-header">
+      <div>
+        <h2 class="section-title text-balance">
+          Six service lines.<br />
+          <em>One locksmith.</em>
+        </h2>
+        <p class="section-subtitle">
+          From a single duplicated key to a bank vault overhaul — covered.
+        </p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter services" id="service-filter">
+        {categories.map((c, i) => (
+          <Chip value={c.value} pressed={i === 0}>{c.label}</Chip>
+        ))}
+      </div>
+    </ScrollReveal>
+
+    <div class="service-grid">
+      {services.map((service, i) => (
+        <ScrollReveal delay={i * 60}>
+          <ServiceCard service={service} />
+        </ScrollReveal>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section {
+    padding-block: clamp(4rem, 8vw, 6rem);
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  :global(.section-header) {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    max-width: 24ch;
+    margin: 0;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--color-primary);
+  }
+
+  .section-subtitle {
+    color: var(--color-muted-foreground);
+    font-size: 1rem;
+    max-width: 36ch;
+    margin-top: 0.75rem;
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+</style>
+
+<script>
+  const init = () => {
+    const filter = document.getElementById('service-filter');
+    if (!filter || filter.dataset.bound === '1') return;
+    filter.dataset.bound = '1';
+
+    const chips = filter.querySelectorAll<HTMLButtonElement>('.chip');
+    const cards = document.querySelectorAll<HTMLElement>('.svc');
+
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        chips.forEach((c) => c.setAttribute('aria-pressed', 'false'));
+        chip.setAttribute('aria-pressed', 'true');
+
+        const value = chip.dataset.value;
+        cards.forEach((card) => {
+          const cats = (card.dataset.categories ?? '').split(',');
+          const match = value === 'all' || cats.includes(value ?? '');
+          card.dataset.hidden = match ? 'false' : 'true';
+        });
+      })
+    );
+  };
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

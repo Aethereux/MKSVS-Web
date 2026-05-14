@@ -1,0 +1,315 @@
+---
+import Base from '../layouts/Base.astro';
+import Container from '../components/ui/Container.astro';
+import PageHero from '../components/PageHero.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/Icon.astro';
+import { partners, brands } from '../data/services';
+---
+
+<Base
+  title="About — MKSVS Enterprise Corporation"
+  description="Founded 1994 by Alain V. Guillermo. Licensed professional locksmith based in Makati City, trained by SECURTECH (Texas) and MANTON (Hong Kong)."
+>
+  <PageHero
+    eyebrow="Established 1994"
+    title="Three decades guarding what matters."
+    subtitle="MKSVS Enterprise Corporation — formerly Masterlock-Key & Safe-Vault Specialist — is a licensed professional locksmith based in Makati City. Founded by Alain V. Guillermo, partnered with leading security companies in the USA, Israel, and China."
+  />
+
+  <section class="section">
+    <Container>
+      <ScrollReveal class="prose-grid">
+        <div class="prose-col">
+          <h2>
+            History
+          </h2>
+          <p>
+            MKSVS Enterprises OPC was established in 1994 by Mr. Alain V. Guillermo —
+            a young and energetic professional with deep experience in the field. From
+            day one we've focused on a single thing: doing locksmith work the right way.
+          </p>
+          <p>
+            Mr. Guillermo received high-level training and orientation from
+            <strong>SECURTECH LOCKSMITH</strong>, a professional locksmith company based
+            in Texas, USA, and <strong>MANTON SECURITY</strong> in Hong Kong, China —
+            knowledge we've carried into every job since.
+          </p>
+        </div>
+
+        <div class="prose-aside">
+          <div class="stat-card">
+            <div class="stat-num gradient-text">30+</div>
+            <div class="stat-label">Years in operation</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num gradient-text">6</div>
+            <div class="stat-label">Service lines</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num gradient-text">24/7</div>
+            <div class="stat-label">Emergency response</div>
+          </div>
+        </div>
+      </ScrollReveal>
+    </Container>
+  </section>
+
+  <section class="section section-alt">
+    <Container>
+      <ScrollReveal class="prose-block">
+        <h2>Our mission</h2>
+        <p>
+          Continuous quality improvement and being a reliable technology solution
+          provider. We aim to impart world-class technology that we can use
+          efficiently and effectively to ensure our clients' safety and satisfaction.
+        </p>
+        <p>
+          Each of our expert locksmiths is skilled, reliable, honest, and knowledgeable —
+          carefully screened to guarantee the best advice, service, and customer care.
+          To us, the customer is number one.
+        </p>
+      </ScrollReveal>
+    </Container>
+  </section>
+
+  <section class="section">
+    <Container>
+      <ScrollReveal>
+        <h2 class="section-heading">Trained by the best</h2>
+        <p class="section-lead">
+          Our standards come from world-leading security specialists we've trained and partnered with.
+        </p>
+
+        <div class="partner-grid">
+          {partners.map((p) => (
+            <div class="partner-card">
+              <Icon name="shield" size={24} />
+              <div>
+                <div class="partner-name">{p.name}</div>
+                <div class="partner-location">{p.location}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+    </Container>
+  </section>
+
+  <section class="section section-alt">
+    <Container>
+      <ScrollReveal>
+        <h2 class="section-heading">Brands we work with</h2>
+        <p class="section-lead">
+          Top-quality services for top brands.
+        </p>
+        <div class="brand-strip">
+          {brands.map((b) => (
+            <span class="brand-pill">{b}</span>
+          ))}
+        </div>
+      </ScrollReveal>
+    </Container>
+  </section>
+
+  <section class="section">
+    <Container>
+      <ScrollReveal class="cta-card">
+        <h2>Ready to talk security?</h2>
+        <p>Get in touch and we'll meet you wherever the lock is.</p>
+        <div class="cta-actions">
+          <Button href="/contact" variant="primary">
+            Contact us
+            <Icon name="arrow-right" size={16} stroke={2.5} />
+          </Button>
+          <Button href="/services" variant="ghost">View services</Button>
+        </div>
+      </ScrollReveal>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .section {
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  .section-alt {
+    background: color-mix(in srgb, var(--color-card) 60%, transparent);
+    border-block: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  :global(.prose-grid) {
+    display: grid !important;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 900px) {
+    :global(.prose-grid) {
+      grid-template-columns: 1.4fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .prose-col h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .prose-col p,
+  :global(.prose-block) p {
+    color: var(--color-muted-foreground);
+    line-height: 1.7;
+    margin: 0 0 1rem 0;
+    max-width: 65ch;
+    font-size: 1rem;
+  }
+
+  .prose-col strong,
+  :global(.prose-block) strong {
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+
+  :global(.prose-block) {
+    max-width: 56rem;
+  }
+
+  :global(.prose-block) h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .prose-aside {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .stat-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-muted-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .section-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .section-lead {
+    color: var(--color-muted-foreground);
+    font-size: 1rem;
+    max-width: 50ch;
+    margin: 0 0 2rem 0;
+  }
+
+  .partner-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .partner-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color 0.3s, transform 0.3s var(--ease-out-expo);
+  }
+
+  .partner-card:hover {
+    border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .partner-card :global(svg) {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .partner-name {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+
+  .partner-location {
+    font-size: 0.875rem;
+    color: var(--color-muted-foreground);
+  }
+
+  .brand-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+
+  .brand-pill {
+    padding: 0.625rem 1rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-foreground);
+  }
+
+  :global(.cta-card) {
+    text-align: center;
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+    background:
+      radial-gradient(ellipse at top, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 70%),
+      var(--color-card);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+    border-radius: var(--radius-xl);
+  }
+
+  :global(.cta-card) h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.75rem 0;
+  }
+
+  :global(.cta-card) p {
+    color: var(--color-muted-foreground);
+    margin: 0 0 2rem 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+</style>
