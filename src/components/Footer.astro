@@ -11,18 +11,11 @@ const year = new Date().getFullYear();
       <div class="footer-brand">
         <a href="/" class="brand" aria-label="MKSVS — home">
           <img
-            src="/logo/emblem-white.svg"
+            src="/logo/mark.png"
             alt=""
-            class="brand-mark brand-mark-on-dark"
-            width="32"
-            height="32"
-          />
-          <img
-            src="/logo/emblem-black.svg"
-            alt=""
-            class="brand-mark brand-mark-on-light"
-            width="32"
-            height="32"
+            class="brand-mark"
+            width="36"
+            height="36"
           />
           <span>MKSVS</span>
         </a>
@@ -96,16 +89,11 @@ const year = new Date().getFullYear();
   }
 
   .brand-mark {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     display: block;
     object-fit: contain;
     flex-shrink: 0;
-  }
-
-  :global([data-theme='dark']) .brand-mark-on-light,
-  :global([data-theme='light']) .brand-mark-on-dark {
-    display: none;
   }
 
   .footer-brand p {
