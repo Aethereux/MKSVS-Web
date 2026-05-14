@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ServicesSection from '../../components/ServicesSection.astro';
+import CtaStrip from '../../components/CtaStrip.astro';
+---
+
+<Base
+  title="Services — MKSVS Enterprise Corporation"
+  description="The full MKSVS service catalog — key duplication, locksmith, commercial, automotive, glass-door, and vault services in Metro Manila."
+>
+  <PageHero
+    eyebrow="Services"
+    title="Six service lines. One locksmith."
+    subtitle="From a single duplicated key to a bank vault overhaul. Filter the catalog below to find what fits."
+  />
+
+  <ServicesSection />
+
+  <CtaStrip
+    title="Not sure which service you need?"
+    subtitle="Tell us the situation and we'll point you to the right answer."
+    primaryHref="/contact"
+    primaryLabel="Get in touch"
+  />
+</Base>

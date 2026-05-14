@@ -1,0 +1,45 @@
+---
+interface Props {
+  value: string;
+  pressed?: boolean;
+  class?: string;
+}
+
+const { value, pressed = false, class: className = '' } = Astro.props;
+---
+
+<button
+  type="button"
+  class:list={['chip', className]}
+  data-value={value}
+  aria-pressed={pressed ? 'true' : 'false'}
+>
+  <slot />
+</button>
+
+<style>
+  .chip {
+    padding: 0.5rem 1rem;
+    background: color-mix(in srgb, var(--color-muted) 50%, transparent);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-muted-foreground);
+    white-space: nowrap;
+    min-height: 36px;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+  }
+
+  .chip:hover {
+    color: var(--color-foreground);
+    border-color: color-mix(in srgb, var(--color-muted-foreground) 50%, transparent);
+  }
+
+  .chip[aria-pressed='true'] {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-color: var(--color-primary);
+  }
+</style>

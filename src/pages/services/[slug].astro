@@ -1,0 +1,306 @@
+---
+import Base from '../../layouts/Base.astro';
+import Container from '../../components/ui/Container.astro';
+import PageHero from '../../components/PageHero.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+import Button from '../../components/ui/Button.astro';
+import Gallery from '../../components/Gallery.astro';
+import Icon from '../../components/Icon.astro';
+import { services } from '../../data/services';
+import type { Service } from '../../data/services';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props as Props;
+const others = services.filter((s) => s.slug !== service.slug);
+---
+
+<Base
+  title={`${service.title} — MKSVS Enterprise Corporation`}
+  description={service.description.slice(0, 160)}
+>
+  <PageHero
+    eyebrow={service.featured ? 'Specialty service' : 'Service'}
+    title={service.title}
+    subtitle={service.tagline}
+  >
+    <div class="cta-row">
+      <Button href="/contact" variant="primary">
+        <Icon name="phone" size={14} stroke={2.5} />
+        Get in touch
+      </Button>
+      <Button href="/services" variant="ghost">
+        ← All services
+      </Button>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <Container>
+      <div class="detail-grid">
+        <ScrollReveal class="detail-prose">
+          <p>{service.description}</p>
+        </ScrollReveal>
+
+        <ScrollReveal class="detail-offerings" delay={80}>
+          <h2>We offer</h2>
+          <ul>
+            {service.offerings.map((o) => (
+              <li>
+                <span class="bullet" aria-hidden="true">
+                  <Icon name={service.icon as any} size={14} />
+                </span>
+                {o}
+              </li>
+            ))}
+          </ul>
+
+          {service.extraSections?.map((sec) => (
+            <div class="extra-section">
+              <h3>{sec.heading}</h3>
+              {sec.body && <p>{sec.body}</p>}
+              {sec.offerings && (
+                <ul>
+                  {sec.offerings.map((o) => (
+                    <li>
+                      <span class="bullet" aria-hidden="true">
+                        <Icon name={service.icon as any} size={14} />
+                      </span>
+                      {o}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </ScrollReveal>
+      </div>
+    </Container>
+  </section>
+
+  <section class="section section-alt">
+    <Container>
+      <ScrollReveal>
+        <div class="gallery-header">
+          <h2>Recent work</h2>
+          <p>{service.galleryCount} photos · tap to enlarge</p>
+        </div>
+        <Gallery slug={service.slug} count={service.galleryCount} alt={service.title} />
+      </ScrollReveal>
+    </Container>
+  </section>
+
+  <section class="section">
+    <Container>
+      <ScrollReveal>
+        <h2 class="other-heading">Other services</h2>
+        <div class="other-grid">
+          {others.map((o) => (
+            <a href={`/services/${o.slug}`} class="other-card">
+              <div class="other-icon">
+                <Icon name={o.icon as any} size={20} />
+              </div>
+              <div>
+                <div class="other-title">{o.title}</div>
+                <div class="other-tagline">{o.tagline}</div>
+              </div>
+              <Icon name="arrow-right" size={16} class="other-arrow" />
+            </a>
+          ))}
+        </div>
+      </ScrollReveal>
+    </Container>
+  </section>
+</Base>
+
+<style>
+  .section {
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  .section-alt {
+    background: color-mix(in srgb, var(--color-card) 60%, transparent);
+    border-block: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 900px) {
+    .detail-grid {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: start;
+    }
+  }
+
+  :global(.detail-prose) p {
+    font-size: 1.0625rem;
+    color: var(--color-muted-foreground);
+    line-height: 1.75;
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  :global(.detail-offerings) h2,
+  :global(.detail-offerings) h3 {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem 0;
+  }
+
+  :global(.detail-offerings) ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  :global(.detail-offerings) li {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.625rem 0.875rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  :global(.detail-offerings) .bullet {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  :global(.detail-offerings) .extra-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--color-border);
+  }
+
+  :global(.detail-offerings) .extra-section p {
+    color: var(--color-muted-foreground);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    font-size: 0.9375rem;
+  }
+
+  .gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .gallery-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .gallery-header p {
+    color: var(--color-muted-foreground);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .other-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 2rem 0;
+  }
+
+  .other-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .other-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s var(--ease-out-expo),
+                border-color 0.3s,
+                background 0.3s;
+  }
+
+  .other-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    background: color-mix(in srgb, var(--color-card) 70%, var(--color-primary) 4%);
+  }
+
+  .other-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .other-title {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 0.9375rem;
+  }
+
+  .other-tagline {
+    font-size: 0.75rem;
+    color: var(--color-muted-foreground);
+    margin-top: 0.125rem;
+  }
+
+  .other-arrow {
+    margin-left: auto;
+    color: var(--color-muted-foreground);
+    flex-shrink: 0;
+    transition: transform 0.2s var(--ease-out-expo), color 0.2s;
+  }
+
+  .other-card:hover .other-arrow {
+    color: var(--color-primary);
+    transform: translateX(3px);
+  }
+</style>

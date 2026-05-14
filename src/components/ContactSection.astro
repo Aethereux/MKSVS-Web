@@ -1,0 +1,292 @@
+---
+import Container from './ui/Container.astro';
+import ScrollReveal from './ScrollReveal.astro';
+import Icon from './Icon.astro';
+
+const landlines = [
+  { label: '(8) 893-5297', tel: '+6388935297' },
+  { label: '(8) 892-8679', tel: '+6388928679' },
+];
+
+const mobiles = [
+  { label: '0922-824-7402', tel: '+639228247402' },
+  { label: '0917-712-5297', tel: '+639177125297' },
+  { label: '0917-318-1620', tel: '+639173181620' },
+  { label: '0922-893-5297', tel: '+639228935297' },
+];
+---
+
+<section class="section" id="contact">
+  <Container>
+    <ScrollReveal class="section-header">
+      <div>
+        <h2 class="section-title text-balance">
+          On call <em>24/7.</em>
+        </h2>
+        <p class="section-subtitle">
+          Reach us by phone, drop by the shop in Makati, or message via Facebook.
+        </p>
+      </div>
+    </ScrollReveal>
+
+    <div class="contact-grid">
+      <ScrollReveal class="contact-card">
+        <div>
+          <h4>Landlines</h4>
+          <ul class="contact-list">
+            {landlines.map((p) => (
+              <li>
+                <a href={`tel:${p.tel}`}>
+                  <Icon name="phone" size={18} />
+                  {p.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4>Mobile</h4>
+          <ul class="contact-list">
+            {mobiles.map((p) => (
+              <li>
+                <a href={`tel:${p.tel}`}>
+                  <Icon name="mobile" size={18} />
+                  {p.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="address-block">
+          <Icon name="map-pin" size={20} />
+          <div>
+            <div class="address-label">Shop location</div>
+            <div class="address-value">
+              6921 Washington St., Brgy. Pio del Pilar<br />
+              Makati City, Philippines
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal class="map-card" delay={100}>
+        <iframe
+          title="Map of MKSVS shop on Washington St, Pio del Pilar, Makati"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=121.0079%2C14.5533%2C121.0139%2C14.5593&layer=mapnik&marker=14.5563%2C121.0109"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <a
+          class="map-overlay"
+          href="https://www.openstreetmap.org/?mlat=14.5563&mlon=121.0109#map=18/14.5563/121.0109"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Washington St., Pio del Pilar in OpenStreetMap"
+        >
+          <div class="map-pin animate-ping-ring">
+            <Icon name="map-pin" size={28} stroke={2.5} />
+          </div>
+          <div class="map-label">6921 Washington St. · Pio del Pilar, Makati</div>
+        </a>
+      </ScrollReveal>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section {
+    padding-block: clamp(4rem, 8vw, 6rem);
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  :global(.section-header) {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    max-width: 24ch;
+    margin: 0;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--color-primary);
+  }
+
+  .section-subtitle {
+    color: var(--color-muted-foreground);
+    font-size: 1rem;
+    max-width: 36ch;
+    margin-top: 0.75rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  :global(.contact-card) {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex !important;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted-foreground);
+    margin: 0 0 0.875rem 0;
+    font-weight: 700;
+  }
+
+  .contact-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9375rem;
+    color: var(--color-foreground);
+    transition: background 0.2s;
+    min-height: 44px;
+    text-decoration: none;
+  }
+
+  .contact-list a:hover {
+    background: color-mix(in srgb, var(--color-muted) 50%, transparent);
+  }
+
+  .contact-list :global(svg) {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .address-block {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: 0.875rem;
+    align-items: flex-start;
+  }
+
+  .address-block :global(svg) {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .address-label {
+    font-size: 0.75rem;
+    color: var(--color-muted-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .address-value {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  /* Map */
+  :global(.map-card) {
+    position: relative;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    min-height: 380px;
+    display: block !important;
+  }
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.4) contrast(1.05);
+  }
+
+  :global([data-theme='dark']) iframe {
+    filter: grayscale(0.6) invert(0.92) hue-rotate(180deg) contrast(0.9);
+  }
+
+  .map-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: backdrop-filter 0.3s var(--ease-out-expo);
+  }
+
+  .map-overlay:hover {
+    backdrop-filter: brightness(1.05);
+  }
+
+  .map-pin {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: grid;
+    place-items: center;
+    color: white;
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 50%, transparent);
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+
+  .map-overlay:hover .map-pin {
+    transform: scale(1.05);
+  }
+
+  .map-label {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.875rem;
+    background: color-mix(in srgb, var(--color-background) 80%, transparent);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+</style>

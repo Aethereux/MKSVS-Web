@@ -1,0 +1,74 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/globals.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  hideNav?: boolean;
+  hideFooter?: boolean;
+}
+
+const {
+  title = 'MKSVS Enterprise Corporation — Locksmith & Safe-Vault Specialist',
+  description = 'Licensed professional locksmith based in Makati City, Philippines. Key duplication, locksmith, automotive, vault, glass-door, and commercial services since 1994.',
+  hideNav = false,
+  hideFooter = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="MKSVS Enterprise Corporation" />
+
+    {/* Icons */}
+    <link rel="icon" type="image/png" href="/logo/icon.png" />
+    <link rel="apple-touch-icon" href="/logo/icon.png" />
+
+    {/* Fonts */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    />
+
+    {/* Theme bootstrap — runs before paint to prevent FOUC */}
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        const theme = stored ?? system;
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+
+    <ClientRouter />
+  </head>
+  <body>
+    {!hideNav && <Navbar />}
+    <main id="main">
+      <slot />
+    </main>
+    {!hideFooter && <Footer />}
+  </body>
+</html>

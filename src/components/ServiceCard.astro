@@ -1,0 +1,138 @@
+---
+import Icon from './Icon.astro';
+import type { Service } from '../data/services';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<article
+  class:list={['svc', { 'svc-featured': service.featured }]}
+  data-categories={service.categories.join(',')}
+>
+  {service.featured && <span class="svc-tag">Specialty</span>}
+  <div class="svc-icon">
+    <Icon name={service.icon as any} size={22} />
+  </div>
+  <h3>{service.title}</h3>
+  <p>{service.description}</p>
+  <a href={`/services/${service.slug}`} class="svc-link">
+    Learn more
+    <Icon name="arrow-right" size={14} stroke={2.5} />
+  </a>
+</article>
+
+<style>
+  .svc {
+    position: relative;
+    padding: 1.75rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.35s var(--ease-out-expo),
+                border-color 0.35s,
+                box-shadow 0.35s;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 220px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .svc:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    box-shadow:
+      0 24px 48px -16px hsl(0 0% 0% / 0.4),
+      0 0 32px color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+
+  .svc-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  p {
+    color: var(--color-muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    flex: 1;
+    margin: 0;
+  }
+
+  .svc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 0.5rem;
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .svc-link :global(svg) {
+    transition: transform 0.25s var(--ease-out-expo);
+  }
+
+  .svc:hover .svc-link :global(svg) {
+    transform: translateX(3px);
+  }
+
+  /* Featured variant */
+  .svc-featured {
+    background:
+      radial-gradient(ellipse at top right,
+        color-mix(in srgb, var(--color-accent) 18%, transparent),
+        transparent 60%),
+      var(--color-card);
+    border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+
+  .svc-featured .svc-icon {
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent);
+  }
+
+  .svc-featured .svc-link {
+    color: var(--color-accent);
+  }
+
+  .svc-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.625rem;
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent);
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Hidden by filter */
+  .svc[data-hidden='true'] {
+    display: none;
+  }
+</style>

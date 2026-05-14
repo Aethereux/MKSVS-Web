@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   MKSVS Design System — HSL semantic tokens
+   Tailwind v4 @theme generates utilities (bg-primary, text-foreground, etc.)
+   ============================================================================= */
+
+@theme {
+  /* ---- Brand ---- */
+  --color-brand-teal: hsl(174 100% 29%);
+  --color-brand-red:  hsl(11 100% 37%);
+
+  /* ---- Semantic (dark default) ---- */
+  --color-background:           hsl(0 0% 4%);
+  --color-foreground:           hsl(0 0% 98%);
+
+  --color-card:                 hsl(0 0% 7%);
+  --color-card-foreground:      hsl(0 0% 98%);
+
+  --color-muted:                hsl(0 0% 14%);
+  --color-muted-foreground:     hsl(0 0% 65%);
+
+  --color-border:               hsl(0 0% 16%);
+  --color-input:                hsl(0 0% 14%);
+  --color-ring:                 hsl(174 100% 35%);
+
+  --color-primary:              hsl(174 100% 29%);
+  --color-primary-foreground:   hsl(0 0% 100%);
+
+  --color-accent:               hsl(11 100% 37%);
+  --color-accent-foreground:    hsl(0 0% 100%);
+
+  --color-success:              hsl(142 71% 45%);
+  --color-destructive:          hsl(0 84% 60%);
+
+  /* ---- Radii ---- */
+  --radius-sm: 0.375rem;
+  --radius:    0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* ---- Motion ---- */
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart:   cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* ---- Shadows / glows ---- */
+  --shadow-glow:     0 0 32px hsl(174 100% 29% / 0.25);
+  --shadow-glow-red: 0 0 32px hsl(11 100% 37% / 0.25);
+
+  /* ---- Type ---- */
+  --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+}
+
+/* ---- Light theme override ---- */
+[data-theme="light"] {
+  --color-background:           hsl(0 0% 99%);
+  --color-foreground:           hsl(0 0% 8%);
+  --color-card:                 hsl(0 0% 100%);
+  --color-card-foreground:      hsl(0 0% 8%);
+  --color-muted:                hsl(0 0% 96%);
+  --color-muted-foreground:     hsl(0 0% 35%);
+  --color-border:               hsl(0 0% 90%);
+  --color-input:                hsl(0 0% 96%);
+}
+
+/* =============================================================================
+   Base
+   ============================================================================= */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01", "rlig" 1, "calt" 1;
+    min-height: 100dvh;
+    line-height: 1.5;
+    transition: background-color 0.4s var(--ease-out-expo),
+                color 0.4s var(--ease-out-expo);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* View Transitions */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.35s;
+    animation-timing-function: var(--ease-out-expo);
+  }
+}
+
+/* =============================================================================
+   Utilities
+   ============================================================================= */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .gradient-text {
+    background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: hsl(var(--color-background) / 0.7);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  .grid-backdrop {
+    background-image:
+      linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  }
+}
+
+/* =============================================================================
+   Animations
+   ============================================================================= */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.4); }
+}
+
+@keyframes ping-ring {
+  0%   { box-shadow: 0 0 0 0 hsl(174 100% 29% / 0.5); }
+  100% { box-shadow: 0 0 0 28px hsl(174 100% 29% / 0); }
+}
+
+.animate-float        { animation: float 6s ease-in-out infinite; }
+.animate-pulse-dot    { animation: pulse-dot 2s var(--ease-out-expo) infinite; }
+.animate-ping-ring    { animation: ping-ring 2s ease-out infinite; }
+
+/* =============================================================================
+   Scroll reveal
+   ============================================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out-expo),
+              transform 0.7s var(--ease-out-expo);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}

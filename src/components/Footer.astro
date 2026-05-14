@@ -1,0 +1,157 @@
+---
+import Container from './ui/Container.astro';
+import { services } from '../data/services';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <Container>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="brand" aria-label="MKSVS — home">
+          <img
+            src="/logo/emblem-white.svg"
+            alt=""
+            class="brand-mark brand-mark-on-dark"
+            width="32"
+            height="32"
+          />
+          <img
+            src="/logo/emblem-black.svg"
+            alt=""
+            class="brand-mark brand-mark-on-light"
+            width="32"
+            height="32"
+          />
+          <span>MKSVS</span>
+        </a>
+        <p>
+          Masterlock-Key &amp; Safe-Vault Specialist. Licensed professional
+          locksmith based in Makati City since 1994.
+        </p>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          {services.map((s) => (
+            <li><a href={`/services/${s.slug}`}>{s.title}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Reach us</h4>
+        <ul>
+          <li><a href="tel:+6388935297">(8) 893-5297</a></li>
+          <li><a href="tel:+639177125297">0917-712-5297</a></li>
+          <li><a href="https://facebook.com/masterlockph" rel="noopener" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 1994–{year} MKSVS Enterprises OPC. All rights reserved.</span>
+      <span>mksvsenterprisecorp.com</span>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: 3rem 2rem;
+    margin-top: 4rem;
+    background: var(--color-background);
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-bottom: 2.5rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 1.125rem;
+    color: var(--color-foreground);
+    text-decoration: none;
+    margin-bottom: 1rem;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    display: block;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  :global([data-theme='dark']) .brand-mark-on-light,
+  :global([data-theme='light']) .brand-mark-on-dark {
+    display: none;
+  }
+
+  .footer-brand p {
+    font-size: 0.875rem;
+    color: var(--color-muted-foreground);
+    max-width: 28ch;
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted-foreground);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  ul a {
+    font-size: 0.875rem;
+    color: var(--color-muted-foreground);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  ul a:hover {
+    color: var(--color-foreground);
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-muted-foreground);
+    flex-wrap: wrap;
+  }
+</style>
