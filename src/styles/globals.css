@@ -51,6 +51,9 @@
   /* ---- Type ---- */
   --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Inter", system-ui, sans-serif;
+
+  /* ---- Brand mark (theme-swappable) ---- */
+  --logo-mark: url("/logo/mark-dark.png");
 }
 
 /* ---- Light theme override ---- */
@@ -63,6 +66,8 @@
   --color-muted-foreground:     hsl(0 0% 35%);
   --color-border:               hsl(0 0% 90%);
   --color-input:                hsl(0 0% 96%);
+
+  --logo-mark: url("/logo/mark.png");
 }
 
 /* =============================================================================

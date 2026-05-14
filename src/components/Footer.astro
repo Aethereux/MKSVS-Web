@@ -86,14 +86,10 @@ const year = new Date().getFullYear();
     height: 36px;
     display: block;
     flex-shrink: 0;
-    background-image: url('/logo/mark-dark.png');
+    background-image: var(--logo-mark);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-  }
-
-  :global([data-theme='light']) .brand-mark {
-    background-image: url('/logo/mark.png');
   }
 
   .footer-brand p {
