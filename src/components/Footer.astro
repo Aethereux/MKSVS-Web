@@ -10,21 +10,7 @@ const year = new Date().getFullYear();
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" class="brand" aria-label="MKSVS — home">
-          <img
-            src="/logo/mark-dark.png"
-            alt=""
-            class="brand-mark brand-mark-on-dark"
-            width="36"
-            height="36"
-          />
-          <img
-            src="/logo/mark.png"
-            alt=""
-            class="brand-mark brand-mark-on-light"
-            width="36"
-            height="36"
-          />
-          <span>MKSVS</span>
+          <span class="brand-mark" aria-hidden="true"></span>
         </a>
         <p>
           Masterlock-Key &amp; Safe-Vault Specialist. Licensed professional
@@ -99,13 +85,15 @@ const year = new Date().getFullYear();
     width: 36px;
     height: 36px;
     display: block;
-    object-fit: contain;
     flex-shrink: 0;
+    background-image: url('/logo/mark-dark.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
-  :global([data-theme='dark']) .brand-mark-on-light,
-  :global([data-theme='light']) .brand-mark-on-dark {
-    display: none;
+  :global([data-theme='light']) .brand-mark {
+    background-image: url('/logo/mark.png');
   }
 
   .footer-brand p {

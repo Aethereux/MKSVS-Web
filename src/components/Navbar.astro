@@ -18,21 +18,7 @@ const links = [
 <header class="navbar">
   <Container class="nav-inner">
     <a href="/" class="brand" aria-label="MKSVS Enterprise Corporation — home">
-      <img
-        src="/logo/mark-dark.png"
-        alt=""
-        class="brand-mark brand-mark-on-dark"
-        width="40"
-        height="40"
-      />
-      <img
-        src="/logo/mark.png"
-        alt=""
-        class="brand-mark brand-mark-on-light"
-        width="40"
-        height="40"
-      />
-      <span class="brand-text">MKSVS</span>
+      <span class="brand-mark" aria-hidden="true"></span>
     </a>
 
     <nav aria-label="Primary">
@@ -119,13 +105,15 @@ const links = [
     width: 40px;
     height: 40px;
     display: block;
-    object-fit: contain;
     flex-shrink: 0;
+    background-image: url('/logo/mark-dark.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
-  :global([data-theme='dark']) .brand-mark-on-light,
-  :global([data-theme='light']) .brand-mark-on-dark {
-    display: none;
+  :global([data-theme='light']) .brand-mark {
+    background-image: url('/logo/mark.png');
   }
 
   .nav-links {
