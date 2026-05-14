@@ -11,9 +11,16 @@ const year = new Date().getFullYear();
       <div class="footer-brand">
         <a href="/" class="brand" aria-label="MKSVS — home">
           <img
+            src="/logo/mark-dark.png"
+            alt=""
+            class="brand-mark brand-mark-on-dark"
+            width="36"
+            height="36"
+          />
+          <img
             src="/logo/mark.png"
             alt=""
-            class="brand-mark"
+            class="brand-mark brand-mark-on-light"
             width="36"
             height="36"
           />
@@ -94,6 +101,11 @@ const year = new Date().getFullYear();
     display: block;
     object-fit: contain;
     flex-shrink: 0;
+  }
+
+  :global([data-theme='dark']) .brand-mark-on-light,
+  :global([data-theme='light']) .brand-mark-on-dark {
+    display: none;
   }
 
   .footer-brand p {
